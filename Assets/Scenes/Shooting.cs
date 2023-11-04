@@ -1,21 +1,18 @@
-using System;
 using UnityEngine;
-using System.Collections;
 
 public class Shooting : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform FirePoint;
     public GameObject bulletPrefab;
-    WeaponHold link;
-        
-    void Start()
-    {
-        link = GetComponent<WeaponHold>();
-        
-    }
 
     public float bulletForce = 20f;
+    private WeaponHold link;
+
+    private void Start()
+    {
+        link = GetComponent<WeaponHold>();
+    }
 
     // Update is called once per frame
     private void Update()
