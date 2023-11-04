@@ -798,7 +798,7 @@ Transform:
   m_GameObject: {fileID: 673262477}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: 1.6, z: 0}
+  m_LocalPosition: {x: 1.2, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -829,7 +829,7 @@ Transform:
   m_GameObject: {fileID: 688292029}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09644127, y: 3.9988375, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 757144634}
   - component: {fileID: 757144636}
   m_Layer: 6
-  m_Name: Gun2
+  m_Name: Gun1
   m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -894,12 +894,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1173974310, guid: dd655e55cee607549a67d93dd1b5c5e3, type: 3}
+  m_Sprite: {fileID: -1544691604, guid: d18d27494f77e474a856efef1bb5dad0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.9, y: 2.6}
+  m_Size: {x: 1.24, y: 3.29}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -952,18 +952,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.058857918, y: -0.02942884}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9, y: 2.6}
-    newSize: {x: 0.9, y: 2.6}
+    oldSize: {x: 1.4, y: 5.4}
+    newSize: {x: 1.24, y: 3.29}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.488575, y: 3.188576}
+  m_Size: {x: 1.4, y: 5.4}
   m_EdgeRadius: 0
 --- !u!1 &841018512
 GameObject:
@@ -1243,14 +1243,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450141824}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.006120772, w: 0.9999813}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.21177816, y: 1.1082871, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1199956033}
   m_Father: {fileID: 841018513}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.701}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1450141826
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1315,7 +1315,7 @@ GameObject:
   - component: {fileID: 1492576159}
   - component: {fileID: 1492576160}
   m_Layer: 6
-  m_Name: Gun1
+  m_Name: Gun2
   m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1377,12 +1377,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1014402033, guid: dd655e55cee607549a67d93dd1b5c5e3, type: 3}
+  m_Sprite: {fileID: -1568804022, guid: d18d27494f77e474a856efef1bb5dad0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.7, y: 3.91}
+  m_Size: {x: 1.01, y: 4.35}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1420,18 +1420,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.029428959, y: -0.014714479}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.7, y: 3.91}
-    newSize: {x: 0.7, y: 3.91}
+    oldSize: {x: 1.0888889, y: 5.4}
+    newSize: {x: 1.01, y: 4.35}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.406291, y: 4.64572}
+  m_Size: {x: 1.0888889, y: 5.4}
   m_EdgeRadius: 0
 --- !u!1 &1597323199
 GameObject:
@@ -1442,11 +1442,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1597323201}
-  - component: {fileID: 1597323200}
   - component: {fileID: 1597323203}
   - component: {fileID: 1597323202}
   - component: {fileID: 1597323205}
   - component: {fileID: 1597323206}
+  - component: {fileID: 1597323207}
   m_Layer: 3
   m_Name: sapsai
   m_TagString: Player
@@ -1454,27 +1454,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &1597323200
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597323199}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 575a266663a07684a837e351e6ba9087, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1597323201
 Transform:
   m_ObjectHideFlags: 0
@@ -1565,6 +1544,27 @@ MonoBehaviour:
   hold: 0
   holdPoint: {fileID: 673262478}
   linePoint: {fileID: 688292030}
+--- !u!95 &1597323207
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597323199}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 575a266663a07684a837e351e6ba9087, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1729869726
 GameObject:
   m_ObjectHideFlags: 0
