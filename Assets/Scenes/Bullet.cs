@@ -8,6 +8,6 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 4);
     }
 }
