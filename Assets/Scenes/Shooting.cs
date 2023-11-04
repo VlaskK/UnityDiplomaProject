@@ -7,7 +7,6 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
     public Transform FirePoint;
     public GameObject bulletPrefab;
-    // private bool hold = true; // здесь я хочу проверку сделать на подобранное оружие, чтобы без него он не стрелял
     WeaponHold link;
         
     void Start()
