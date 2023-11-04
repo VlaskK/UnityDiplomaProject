@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0a45ea8bdc9d8e0489e974eaf980e23c
+guid: d18d27494f77e474a856efef1bb5dad0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 90
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gun_1
+      name: "\u043E\u0440\u0443\u0436\u0438\u0435 0"
       rect:
         serializedVersion: 2
-        x: 32
-        y: 79
-        width: 49
-        height: 146
+        x: 80
+        y: 264
+        width: 126
+        height: 486
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69f71badaa264d048b2aecdc86a9914a
-      internalID: 1784204292
+      spriteID: 8058b844c3ed7a24e8202298e281e0d0
+      internalID: -1544691604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun_2
+      name: "\u043E\u0440\u0443\u0436\u0438\u0435 1"
       rect:
         serializedVersion: 2
-        x: 92
-        y: 79
-        width: 39
-        height: 146
+        x: 230
+        y: 264
+        width: 98
+        height: 486
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6c4cfa575d280e4280d2d3fdf2dc786
-      internalID: 45468809
+      spriteID: 2b48d588593b29a46a80bbd9b7890c3c
+      internalID: -1568804022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun_3
+      name: "\u043E\u0440\u0443\u0436\u0438\u0435 2"
       rect:
         serializedVersion: 2
-        x: 147
-        y: 79
-        width: 39
-        height: 146
+        x: 368
+        y: 264
+        width: 98
+        height: 487
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b083527e5dceeb247bca5b8e4ba61e7b
-      internalID: 194598997
+      spriteID: cb51a4b39acadf14e90f10bc39628459
+      internalID: -870072608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun_4
+      name: "\u043E\u0440\u0443\u0436\u0438\u0435 3"
       rect:
         serializedVersion: 2
-        x: 202
-        y: 79
-        width: 44
-        height: 146
+        x: 506
+        y: 264
+        width: 110
+        height: 486
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fef27ebda09b2045b8678c76d8c5ad4
-      internalID: -112025632
+      spriteID: 4eee7f2259df7b34da34e1cf58b9e765
+      internalID: 114289189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun_5
+      name: "\u043E\u0440\u0443\u0436\u0438\u0435 4"
       rect:
         serializedVersion: 2
-        x: 257
-        y: 79
-        width: 55
-        height: 147
+        x: 640
+        y: 264
+        width: 140
+        height: 490
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dc8fc8892b1e1241a3833c7522ce66a
-      internalID: -2111738489
+      spriteID: 9d42f57e23fda87419f5f9fa82e750c1
+      internalID: 408040122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun_6
+      name: "\u043E\u0440\u0443\u0436\u0438\u0435 5"
       rect:
         serializedVersion: 2
-        x: 323
-        y: 79
-        width: 39
-        height: 148
+        x: 808
+        y: 264
+        width: 98
+        height: 494
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96e71fd2c95cc1e4183803efc825014a
-      internalID: 1908199080
+      spriteID: 6144884ea7baa5c4da7df4ef70583777
+      internalID: 771596514
       vertices: []
       indices: 
       edges: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Gun_1: 1784204292
-      Gun_2: 45468809
-      Gun_3: 194598997
-      Gun_4: -112025632
-      Gun_5: -2111738489
-      Gun_6: 1908199080
+      "\u043E\u0440\u0443\u0436\u0438\u0435 0": -1544691604
+      "\u043E\u0440\u0443\u0436\u0438\u0435 1": -1568804022
+      "\u043E\u0440\u0443\u0436\u0438\u0435 2": -870072608
+      "\u043E\u0440\u0443\u0436\u0438\u0435 3": 114289189
+      "\u043E\u0440\u0443\u0436\u0438\u0435 4": 408040122
+      "\u043E\u0440\u0443\u0436\u0438\u0435 5": 771596514
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
