@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class WeaponHold : MonoBehaviour
@@ -7,7 +8,7 @@ public class WeaponHold : MonoBehaviour
     public Transform linePoint;
 
     private Animator anime;
-    private readonly float dist = 10f;
+    private readonly float dist = 3;
     
     private RaycastHit2D hit;
 
@@ -26,7 +27,9 @@ public class WeaponHold : MonoBehaviour
     {
         rotator2.Set(linePoint.position.x, linePoint.position.y);
         rotator3.Set(linePoint.position.x, linePoint.position.y, 0);
-
+        
+        // Debug.Log(rotator2);
+        
         anime.SetBool("Hold", hold);
 
         if (Input.GetKeyDown(KeyCode.F))
@@ -35,7 +38,8 @@ public class WeaponHold : MonoBehaviour
             {
                 Physics2D.queriesStartInColliders = false;
                 hit = Physics2D.Raycast(transform.position, rotator2, dist);
-
+                // Debug.Log($"{hit.collider} -- {rotator2} -- {hit.point} -- {hit.distance}");
+                
                 if (hit.collider != null && hit.collider.tag == "Gun") hold = true;
             }
             else

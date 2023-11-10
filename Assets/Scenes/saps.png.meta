@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5091d3e4de5e34949adef1445985dbae
+guid: 8a7422493c62a124d991f5363aa56318
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,12 +110,33 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: leftL
+      name: leftH
       rect:
         serializedVersion: 2
         x: 240
         y: 520
-        width: 120
+        width: 150
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01a8bfea85262954c8d73925086df62d
+      internalID: -2083057516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: head
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 456
+        width: 110
         height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -124,62 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ae962c66b28dba4b83d738b870bf100
-      internalID: 2139745839
+      spriteID: 902f3875584a1be4aaaff8a182fc1afb
+      internalID: 123421050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: leftK
+      name: rightH
       rect:
         serializedVersion: 2
-        x: 350
-        y: 650
-        width: 60
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 45c187cd40cb1f746ac21a9ed776afa1
-      internalID: 1576629971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rightK
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 650
-        width: 60
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 482e9d50172224e4abb366fe844c5641
-      internalID: 1633289527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rightL
-      rect:
-        serializedVersion: 2
-        x: 550
+        x: 520
         y: 520
-        width: 120
-        height: 140
+        width: 150
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed6bcd78ecf6d714aadeb8ed1315e860
-      internalID: 1511385451
+      spriteID: e21ea6a2bbbe75641a7a155872738ff9
+      internalID: 383084591
       vertices: []
       indices: 
       edges: []
@@ -208,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61be18244c9cec741b4af44bdc239c92
-      internalID: -146563062
+      spriteID: 8730890668c430046bded87b57c00c2d
+      internalID: 1647233925
       vertices: []
       indices: 
       edges: []
@@ -221,7 +200,7 @@ TextureImporter:
         x: 330
         y: 270
         width: 250
-        height: 250
+        height: 180
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9a7072912ca7e0489b845fd71c49644
-      internalID: -873075696
+      spriteID: 3123ff6bac4cb714389371273d56c2f8
+      internalID: 2050071041
       vertices: []
       indices: 
       edges: []
@@ -250,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8e422f688599d64f844f98024dde2b3
-      internalID: 1349940856
+      spriteID: ee9a420ccedb7634884575f068b2ec49
+      internalID: 1692769396
       vertices: []
       indices: 
       edges: []
@@ -267,13 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      body: -873075696
-      leftK: 1576629971
-      leftL: 2139745839
-      leftP: -146563062
-      rightK: 1633289527
-      rightL: 1511385451
-      rightP: 1349940856
+      body: 2050071041
+      head: 123421050
+      leftH: -2083057516
+      leftP: 1647233925
+      rightH: 383084591
+      rightP: 1692769396
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
