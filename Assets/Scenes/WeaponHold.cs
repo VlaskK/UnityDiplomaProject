@@ -8,8 +8,7 @@ public class WeaponHold : MonoBehaviour
 
     private Animator anime;
     private readonly float dist = 10f;
-
-
+    
     private RaycastHit2D hit;
 
     private Vector2 rotator2;
@@ -44,8 +43,8 @@ public class WeaponHold : MonoBehaviour
                 hold = false;
 
                 if (hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
-                    hit.collider.gameObject.transform.position = new Vector3(transform.localScale.x + 5f,
-                        transform.localScale.y + 6f, transform.localScale.z);
+                    hit.collider.gameObject.transform.position = new Vector3(transform.localScale.x,
+                        transform.localScale.y, transform.localScale.z);
             }
         }
 
