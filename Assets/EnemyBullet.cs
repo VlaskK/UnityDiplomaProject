@@ -35,11 +35,8 @@ public class EnemyBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("OnTriggerEnter2D");
-        Debug.Log(col.tag);
         if (col.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Damage2D");
             col.gameObject.GetComponent<playerHealth>().TakeDamage(20);
             Destroy(gameObject);
         }
