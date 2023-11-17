@@ -12,8 +12,8 @@ public class WeaponHold : MonoBehaviour
     
     private RaycastHit2D hit;
 
-    private Vector2 rotator2;
-    private Vector3 rotator3;
+    private Vector2 direction2d;
+    private Vector3 direction3d;
 
 
     // Start is called before the first frame update
@@ -25,8 +25,8 @@ public class WeaponHold : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        rotator2.Set(linePoint.position.x, linePoint.position.y);
-        rotator3.Set(linePoint.position.x, linePoint.position.y, 0);
+        direction2d.Set(linePoint.position.x, linePoint.position.y);
+        direction3d.Set(linePoint.position.x, linePoint.position.y, 0);
         
         // Debug.Log(rotator2);
         
@@ -37,7 +37,7 @@ public class WeaponHold : MonoBehaviour
             if (!hold)
             {
                 Physics2D.queriesStartInColliders = false;
-                hit = Physics2D.Raycast(transform.position, rotator2, dist);
+                hit = Physics2D.Raycast(transform.position, direction2d, dist);
                 // Debug.Log($"{hit.collider} -- {rotator2} -- {hit.point} -- {hit.distance}");
                 
                 if (hit.collider != null && hit.collider.tag == "Gun") hold = true;
@@ -48,7 +48,7 @@ public class WeaponHold : MonoBehaviour
 
                 if (hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
                     hit.collider.gameObject.transform.position = new Vector3(transform.localScale.x,
-                        transform.localScale.y, transform.localScale.z);
+                        transform.localScale.y, 0);
             }
         }
 
@@ -63,6 +63,6 @@ public class WeaponHold : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, rotator3);
+        Gizmos.DrawLine(transform.position, direction3d);
     }
 }
