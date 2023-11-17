@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Shooting : MonoBehaviour
+public class PlayerShooting : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform FirePoint;
