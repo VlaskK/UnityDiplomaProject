@@ -54,7 +54,7 @@ public class WeaponHold : MonoBehaviour
 
         if (hold)
         {
-            hit.collider.gameObject.transform.position = holdPoint.position;
+            hit.collider.gameObject.transform.position = new Vector3(holdPoint.position.x, holdPoint.position.y, 1);
 
             hit.collider.gameObject.transform.rotation = transform.rotation;
         }

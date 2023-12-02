@@ -835,7 +835,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017719675}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -867,7 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 50
-  rb: {fileID: 0}
+  rb: {fileID: 2017719679}
 --- !u!70 &2017719683
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -897,7 +897,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.6073943, y: -0.050614886}
@@ -1154,7 +1154,7 @@ PrefabInstance:
     - target: {fileID: 7993405383350386166, guid: cd39ec22dfa30b748853750b36232cdd, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 4000796071218114924, guid: 9e231caab1e0d4a4897fe48a4f16c951, type: 3}
+      objectReference: {fileID: 4954296599992880274, guid: bc45405bd6ca6e3489c25d2f0c50c125, type: 3}
     - target: {fileID: 7993405383350386166, guid: cd39ec22dfa30b748853750b36232cdd, type: 3}
       propertyPath: enemyRange
       value: 10
@@ -1220,6 +1220,10 @@ PrefabInstance:
     - target: {fileID: 5133166252855803466, guid: b515ccee0f063d34cb87f6ad4be837d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7104639431189414300, guid: b515ccee0f063d34cb87f6ad4be837d0, type: 3}
+      propertyPath: m_Size.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7720163994835765931, guid: b515ccee0f063d34cb87f6ad4be837d0, type: 3}
       propertyPath: m_Name
@@ -1314,6 +1318,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3762202167774683561, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 3954936793986054171, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1326,6 +1334,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -197767968, guid: 1faa3a73d0459cb4b87834158cf2e618, type: 3}
+    - target: {fileID: 6766761459731764801, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 7828969845851802732, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
       propertyPath: m_Name
       value: sapsai
@@ -1392,6 +1404,10 @@ PrefabInstance:
     - target: {fileID: 3458734394430884641, guid: 891ed556aa2f7894bb36e2c9adec7c78, type: 3}
       propertyPath: m_Name
       value: Gun1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952658389248678653, guid: 891ed556aa2f7894bb36e2c9adec7c78, type: 3}
+      propertyPath: m_AutoTiling
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
