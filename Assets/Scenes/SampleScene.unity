@@ -832,8 +832,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.21133333}
-  m_Size: {x: 2, y: 2}
+  m_Offset: {x: -0.0064351824, y: -0.0010461772}
+  m_Size: {x: 1.1891292, y: 1.2406697}
   m_Direction: 0
 --- !u!1001 &2495709781034866427
 PrefabInstance:
@@ -847,6 +847,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 620794867146532093, guid: c0cd7e4cc406b994ab9e2fc6b41b4dcc, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1607082299148302370, guid: c0cd7e4cc406b994ab9e2fc6b41b4dcc, type: 3}
       propertyPath: m_Name
       value: HealtbarCanvas
@@ -991,6 +995,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 435432486933246331, guid: cd39ec22dfa30b748853750b36232cdd, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 435432486933246331, guid: cd39ec22dfa30b748853750b36232cdd, type: 3}
       propertyPath: m_TagString
       value: Enemy
