@@ -169,6 +169,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2062502148814225220, guid: 3e9501ca9fdf7c243af58b0e159d1522, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 2099318286888233064, guid: 3e9501ca9fdf7c243af58b0e159d1522, type: 3}
       propertyPath: m_Name
       value: ShootingEnemyFollow
