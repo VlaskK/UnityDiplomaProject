@@ -8,7 +8,7 @@ public class WeaponHold : MonoBehaviour
     public Transform linePoint;
 
     private Animator anime;
-    private PlayerShooting active;
+    private Gun_Shooting shoot;
     private readonly float dist = 3;
     
     private RaycastHit2D hit;
@@ -21,7 +21,7 @@ public class WeaponHold : MonoBehaviour
     private void Start()
     {
         anime = GetComponent<Animator>();
-        active = GetComponent<PlayerShooting>();
+        shoot = GetComponent<Gun_Shooting>();
     }
 
     // Update is called once per frame
@@ -43,14 +43,14 @@ public class WeaponHold : MonoBehaviour
                 if (hit.collider != null && hit.collider.tag == "Gun")
                 {
                     hold = true;
-                    active.Active = true;
-                    //Debug.Log($"Active = {active.Active}");
+                    hit.collider.gameObject.GetComponent<Gun_Shooting>().Active = true;
+                    // Debug.Log($"Active = {shoot.Active} -- GameObj = {hit.collider.gameObject.name}");
                 }
             }
             else
             {
                 hold = false;
-                active.Active = false;
+                hit.collider.gameObject.GetComponent<Gun_Shooting>().Active = false;
                 
                 if (hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
                     hit.collider.gameObject.transform.position = new Vector3(transform.localScale.x,

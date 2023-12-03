@@ -302,7 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3269064775725805661}
   m_Layer: 3
-  m_Name: firePoint
+  m_Name: LinePointRaycast
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
