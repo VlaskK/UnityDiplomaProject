@@ -141,7 +141,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 50
-  rb: {fileID: 0}
+  rb: {fileID: 241562795}
+--- !u!50 &241562795 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 546970860871499651, guid: 3e9501ca9fdf7c243af58b0e159d1522, type: 3}
+  m_PrefabInstance: {fileID: 338338309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &332211110 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 150096205823300483, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
@@ -209,6 +214,10 @@ PrefabInstance:
       propertyPath: bulletPos
       value: 
       objectReference: {fileID: 338338310}
+    - target: {fileID: 5685560304451077249, guid: 3e9501ca9fdf7c243af58b0e159d1522, type: 3}
+      propertyPath: enemyRange
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6295580873910808792, guid: 3e9501ca9fdf7c243af58b0e159d1522, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1083,6 +1092,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 5214247d6a9b112409169529de5a8a73, type: 3}
+    - target: {fileID: 1120734195576300299, guid: cd39ec22dfa30b748853750b36232cdd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3431285854495378566, guid: cd39ec22dfa30b748853750b36232cdd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.44
@@ -1157,6 +1170,10 @@ PrefabInstance:
       objectReference: {fileID: 4954296599992880274, guid: bc45405bd6ca6e3489c25d2f0c50c125, type: 3}
     - target: {fileID: 7993405383350386166, guid: cd39ec22dfa30b748853750b36232cdd, type: 3}
       propertyPath: enemyRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993405383350386166, guid: cd39ec22dfa30b748853750b36232cdd, type: 3}
+      propertyPath: moveDistance
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1262,6 +1279,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2113084030, guid: 1faa3a73d0459cb4b87834158cf2e618, type: 3}
+    - target: {fileID: 2445844777599036978, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2445844777599036978, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
       propertyPath: bulletForce
       value: 30
@@ -1401,9 +1422,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1970021948599989829, guid: 891ed556aa2f7894bb36e2c9adec7c78, type: 3}
+      propertyPath: bulletForce
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 3458734394430884641, guid: 891ed556aa2f7894bb36e2c9adec7c78, type: 3}
       propertyPath: m_Name
       value: Gun1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458734394430884641, guid: 891ed556aa2f7894bb36e2c9adec7c78, type: 3}
+      propertyPath: m_TagString
+      value: Gun
       objectReference: {fileID: 0}
     - target: {fileID: 5952658389248678653, guid: 891ed556aa2f7894bb36e2c9adec7c78, type: 3}
       propertyPath: m_AutoTiling
