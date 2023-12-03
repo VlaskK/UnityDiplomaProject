@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8a7422493c62a124d991f5363aa56318
+guid: 1faa3a73d0459cb4b87834158cf2e618
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: leftH
+      name: saps_LHand
       rect:
         serializedVersion: 2
         x: 240
@@ -118,20 +118,20 @@ TextureImporter:
         width: 150
         height: 169
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01a8bfea85262954c8d73925086df62d
-      internalID: -2083057516
+      spriteID: e6c08ab1fa9e2f74cacb735e71f8745e
+      internalID: -737895006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: head
+      name: saps_Head
       rect:
         serializedVersion: 2
         x: 402
@@ -139,20 +139,20 @@ TextureImporter:
         width: 110
         height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 902f3875584a1be4aaaff8a182fc1afb
-      internalID: 123421050
+      spriteID: a1b6ccd80782a1d42bd7a959a1f4f264
+      internalID: 347771250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rightH
+      name: saps_RHand
       rect:
         serializedVersion: 2
         x: 520
@@ -160,20 +160,20 @@ TextureImporter:
         width: 150
         height: 170
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e21ea6a2bbbe75641a7a155872738ff9
-      internalID: 383084591
+      spriteID: 14f9e3a9da076b643853c51c0cf61293
+      internalID: -1693137849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: leftP
+      name: saps_LArm
       rect:
         serializedVersion: 2
         x: 240
@@ -181,20 +181,20 @@ TextureImporter:
         width: 80
         height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8730890668c430046bded87b57c00c2d
-      internalID: 1647233925
+      spriteID: 4b4eb8effbcb40f4dba4ce75a973c5de
+      internalID: -197767968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: body
+      name: saps_Body
       rect:
         serializedVersion: 2
         x: 330
@@ -202,20 +202,20 @@ TextureImporter:
         width: 250
         height: 180
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3123ff6bac4cb714389371273d56c2f8
-      internalID: 2050071041
+      spriteID: fc73a5fe04f8d77409d0bbd685ba0af3
+      internalID: 384758995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rightP
+      name: saps_RArm
       rect:
         serializedVersion: 2
         x: 590
@@ -223,14 +223,14 @@ TextureImporter:
         width: 80
         height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee9a420ccedb7634884575f068b2ec49
-      internalID: 1692769396
+      spriteID: eb773e958feacad4199901d75950810b
+      internalID: 2113084030
       vertices: []
       indices: 
       edges: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      body: 2050071041
-      head: 123421050
-      leftH: -2083057516
-      leftP: 1647233925
-      rightH: 383084591
-      rightP: 1692769396
+      saps_Body: 384758995
+      saps_Head: 347771250
+      saps_LArm: -197767968
+      saps_LHand: -737895006
+      saps_RArm: 2113084030
+      saps_RHand: -1693137849
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

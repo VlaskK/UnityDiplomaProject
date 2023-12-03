@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerShooting : MonoBehaviour
+public class Gun_Shooting : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform FirePoint;
@@ -18,7 +18,7 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // Debug.Log($"Active.Shoot = {Active}");
+        // Debug.Log($"Active.Shoot Gun1 = {Active} -- GameObj = {gameObject.name}");
         if (Input.GetButtonDown("Fire1") && Active) Shoot();
     }
 

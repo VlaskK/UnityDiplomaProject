@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8612106549877571486}
   - component: {fileID: 1996785169698368693}
   m_Layer: 0
-  m_Name: enemy-bullet
+  m_Name: enemy1-bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4000796071218114924}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.54, y: 2.81, z: 0}
+  m_LocalPosition: {x: -2.539, y: 2.806, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e208242b52b658e48b1cde9da036ae16, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d56d5191ba413eb47904ae3beb05bdf4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4000796071218114924}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  force: 5
+  force: 25
 --- !u!70 &1996785169698368693
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -160,6 +160,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00035583973, y: 0.0032031536}
-  m_Size: {x: 0.1554997, y: 0.4551549}
+  m_Offset: {x: 0.0055959225, y: 0.011634827}
+  m_Size: {x: 0.14359617, y: 0.575181}
   m_Direction: 0

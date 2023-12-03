@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    public float damage = 20f;
     private float timer; 
     // Update is called once per frame
     private void Start()
@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
         if (col.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("enemy hit");
-            col.gameObject.GetComponent<EnemyHealth>().TakeDamage(20);
+            col.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }
