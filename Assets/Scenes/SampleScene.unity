@@ -1044,6 +1044,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -197767968, guid: 1faa3a73d0459cb4b87834158cf2e618, type: 3}
+    - target: {fileID: 6514801851815350345, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 6766761459731764801, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
       propertyPath: m_Icon
       value: 

@@ -44,6 +44,7 @@ public class WeaponHold : MonoBehaviour
                 {
                     hold = true;
                     hit.collider.gameObject.GetComponent<Gun_Shooting>().Active = true;
+                    hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 7;
                     // Debug.Log($"Active = {shoot.Active} -- GameObj = {hit.collider.gameObject.name}");
                 }
             }
@@ -51,6 +52,7 @@ public class WeaponHold : MonoBehaviour
             {
                 hold = false;
                 hit.collider.gameObject.GetComponent<Gun_Shooting>().Active = false;
+                hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 
                 if (hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
                     hit.collider.gameObject.transform.position = new Vector3(transform.localScale.x,
