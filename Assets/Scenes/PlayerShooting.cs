@@ -18,7 +18,7 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Debug.Log($"Active.Shoot = {Active}");
+        // Debug.Log($"Active.Shoot = {Active}");
         if (Input.GetButtonDown("Fire1") && Active) Shoot();
     }
 

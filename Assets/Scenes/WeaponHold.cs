@@ -30,8 +30,6 @@ public class WeaponHold : MonoBehaviour
         direction2d.Set(linePoint.position.x, linePoint.position.y);
         direction3d.Set(linePoint.position.x, linePoint.position.y, 0);
         
-        // Debug.Log(rotator2);
-        
         anime.SetBool("Hold", hold);
 
         if (Input.GetKeyDown(KeyCode.F))
@@ -46,7 +44,7 @@ public class WeaponHold : MonoBehaviour
                 {
                     hold = true;
                     active.Active = true;
-                    Debug.Log($"Active = {active.Active}");
+                    //Debug.Log($"Active = {active.Active}");
                 }
             }
             else

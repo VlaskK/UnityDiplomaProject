@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  force: 30
+  force: 25
 --- !u!70 &1996785169698368693
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
