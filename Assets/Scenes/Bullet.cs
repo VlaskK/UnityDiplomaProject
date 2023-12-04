@@ -22,8 +22,8 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("enemy touched");
-        Debug.Log(col);
+        // Debug.Log("enemy touched");
+        // Debug.Log(col);
         if (col.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("enemy hit");
