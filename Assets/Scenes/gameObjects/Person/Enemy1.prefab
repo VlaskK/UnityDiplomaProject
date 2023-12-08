@@ -45,9 +45,10 @@ GameObject:
   - component: {fileID: 2655952371649442459}
   - component: {fileID: 5564212812100468447}
   - component: {fileID: 1007022393592845062}
+  - component: {fileID: -2904978970351919756}
   m_Layer: 8
-  m_Name: ShootingEnemyFollow
-  m_TagString: Enemy
+  m_Name: Enemy1
+  m_TagString: Enemy1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,12 +110,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: cfaea3405a036c744843d4ba25646c3e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: daf0cd29c9f6e2240a8fb2d98565ec74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -179,8 +180,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.22476442, y: 0.14590482}
-  m_Size: {x: 4.4120955, y: 3.669201}
+  m_Offset: {x: -0.18753007, y: -0.112519495}
+  m_Size: {x: 4.574801, y: 3.774993}
   m_Direction: 1
 --- !u!114 &5564212812100468447
 MonoBehaviour:
@@ -211,5 +212,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade955d177862d54388c69fdf7907de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 50
+  healthAmount: 100
   rb: {fileID: 8498722026143743869}
+--- !u!95 &-2904978970351919756
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3246146397071108158}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1bf81d9aa21e0fb4d9e2ff905df4415f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

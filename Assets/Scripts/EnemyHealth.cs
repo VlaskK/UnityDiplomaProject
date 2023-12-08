@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -26,5 +27,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         healthAmount -= damage;
+        
+        gameObject.GetComponent<Animator>().SetTrigger("Damage");
     }
 }

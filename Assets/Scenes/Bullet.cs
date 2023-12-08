@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Enemy"))
+        if (col.gameObject.CompareTag("Enemy1") || col.gameObject.CompareTag("Enemy2"))
         {
             Debug.Log("enemy hit");
             col.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
