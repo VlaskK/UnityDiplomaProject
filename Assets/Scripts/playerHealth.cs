@@ -28,6 +28,8 @@ public class playerHealth : MonoBehaviour
     {
         healthAmount -= damage;
         HealthBar.fillAmount = healthAmount / 100f;
+        
+        gameObject.GetComponent<Animator>().SetTrigger("Damage");
     }
 
     public void Heal(float healingAmount)
