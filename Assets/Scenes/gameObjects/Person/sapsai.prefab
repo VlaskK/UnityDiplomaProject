@@ -784,13 +784,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf4871f79896b440a766ac56ef2a0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimeAttack: 1
+  startTimeAttack: 0.5
   attackPos: {fileID: 6271900058424966590}
   enemy:
     serializedVersion: 2
     m_Bits: 256
-  attackRange: 2
-  damage: 10
+  attackRange: 2.5
+  damage: 40
 --- !u!1001 &6856955982076508746
 PrefabInstance:
   m_ObjectHideFlags: 0
