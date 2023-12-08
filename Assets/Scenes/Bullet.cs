@@ -22,12 +22,16 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        // Debug.Log("enemy touched");
-        // Debug.Log(col);
         if (col.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("enemy hit");
             col.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
+
+        if (col.gameObject.CompareTag("Wall"))
+        {
+            Debug.Log("Wall hit");
             Destroy(gameObject);
         }
     }

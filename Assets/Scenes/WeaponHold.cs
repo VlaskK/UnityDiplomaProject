@@ -32,7 +32,7 @@ public class WeaponHold : MonoBehaviour
         
         anime.SetBool("Hold", hold);
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyUp(KeyCode.F))
         {
             if (!hold)
             {
@@ -45,6 +45,8 @@ public class WeaponHold : MonoBehaviour
                     hold = true;
                     hit.collider.gameObject.GetComponent<Gun_Shooting>().Active = true;
                     hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 7;
+                    gameObject.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
+                    Debug.Log($"Name -- {gameObject.name}");
                     // Debug.Log($"Active = {shoot.Active} -- GameObj = {hit.collider.gameObject.name}");
                 }
             }
@@ -53,7 +55,7 @@ public class WeaponHold : MonoBehaviour
                 hold = false;
                 hit.collider.gameObject.GetComponent<Gun_Shooting>().Active = false;
                 hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
-                
+                gameObject.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
                 if (hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
                     hit.collider.gameObject.transform.position = new Vector3(transform.localScale.x,
                         transform.localScale.y, 0);
