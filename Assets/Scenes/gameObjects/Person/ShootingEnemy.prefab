@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1366631793206404879}
   m_Layer: 8
   m_Name: ShootingEnemy
-  m_TagString: Enemy
+  m_TagString: Enemy2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 5214247d6a9b112409169529de5a8a73, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -147,6 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthAmount: 50
   rb: {fileID: 4510161271626708607}
+  mob1: {fileID: 21300000, guid: 81d57e6277ea63449992f1633710306d, type: 3}
+  mob2: {fileID: 21300000, guid: 5f8791f2e61983e428e4f44e5ade9e42, type: 3}
 --- !u!70 &1366631793206404879
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

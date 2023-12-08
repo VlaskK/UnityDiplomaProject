@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1007022393592845062}
   m_Layer: 8
   m_Name: ShootingEnemyFollow
-  m_TagString: Enemy
+  m_TagString: Enemy1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,12 +109,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: cfaea3405a036c744843d4ba25646c3e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: daf0cd29c9f6e2240a8fb2d98565ec74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -179,8 +179,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.22476442, y: 0.14590482}
-  m_Size: {x: 4.4120955, y: 3.669201}
+  m_Offset: {x: -0.18753007, y: -0.112519495}
+  m_Size: {x: 4.574801, y: 3.774993}
   m_Direction: 1
 --- !u!114 &5564212812100468447
 MonoBehaviour:
@@ -213,3 +213,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthAmount: 50
   rb: {fileID: 8498722026143743869}
+  mob1: {fileID: 21300000, guid: 81d57e6277ea63449992f1633710306d, type: 3}
+  mob2: {fileID: 21300000, guid: 5f8791f2e61983e428e4f44e5ade9e42, type: 3}
