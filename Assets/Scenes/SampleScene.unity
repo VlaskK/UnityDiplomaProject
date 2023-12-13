@@ -667,6 +667,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2997631285002235214, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
   m_PrefabInstance: {fileID: 6779492378384695544}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1704032167 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1714551244375281263, guid: c0cd7e4cc406b994ab9e2fc6b41b4dcc, type: 3}
+  m_PrefabInstance: {fileID: 3344126945551583974}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1729869726
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,11 +831,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f011f701351987148aae39a0db786629, type: 3}
---- !u!4 &1966161254 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5757604083641027181, guid: b515ccee0f063d34cb87f6ad4be837d0, type: 3}
-  m_PrefabInstance: {fileID: 6769947871173644821}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3344126945551583974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1039,22 +1045,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7104639431189414300, guid: b515ccee0f063d34cb87f6ad4be837d0, type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7720163994835765931, guid: b515ccee0f063d34cb87f6ad4be837d0, type: 3}
       propertyPath: m_Name
       value: Gun2
       objectReference: {fileID: 0}
-    - target: {fileID: 8312364599591194157, guid: b515ccee0f063d34cb87f6ad4be837d0, type: 3}
-      propertyPath: FirePoint
-      value: 
-      objectReference: {fileID: 1966161254}
-    - target: {fileID: 8312364599591194157, guid: b515ccee0f063d34cb87f6ad4be837d0, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 885497923988729435, guid: 471eb85af1a6dd548a41a6dd5292a619, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1116,6 +1110,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6585785194403233427, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
+      propertyPath: nBull
+      value: 
+      objectReference: {fileID: 1704032167}
     - target: {fileID: 7828969845851802732, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
       propertyPath: m_Name
       value: sapsai
@@ -1173,21 +1171,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1970021948599989829, guid: 891ed556aa2f7894bb36e2c9adec7c78, type: 3}
-      propertyPath: bulletForce
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 3458734394430884641, guid: 891ed556aa2f7894bb36e2c9adec7c78, type: 3}
       propertyPath: m_Name
       value: Gun1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3458734394430884641, guid: 891ed556aa2f7894bb36e2c9adec7c78, type: 3}
-      propertyPath: m_TagString
-      value: Gun
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952658389248678653, guid: 891ed556aa2f7894bb36e2c9adec7c78, type: 3}
-      propertyPath: m_AutoTiling
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
