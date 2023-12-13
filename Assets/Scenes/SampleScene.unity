@@ -421,7 +421,7 @@ MonoBehaviour:
   levelFileName: Assets/Scenes/level_1.txt
   wallPrefab: {fileID: 4629750254264579039, guid: 43e4de94b08e9ab4397eec1683ce8ac7, type: 3}
   floorPrefab: {fileID: 4066399992705283558, guid: 297d2dff498f40444a943e9c0ed95d4b, type: 3}
-  doorPrefab: {fileID: 1094998373}
+  doorPrefab: {fileID: 5420820006103459287, guid: f011f701351987148aae39a0db786629, type: 3}
 --- !u!1 &535541740
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,11 +658,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1094998373 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5420820006103459287, guid: f011f701351987148aae39a0db786629, type: 3}
-  m_PrefabInstance: {fileID: 1908045426}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1597323201 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2997631285002235214, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
@@ -1069,29 +1064,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 150096205823300483, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 806456513849055832, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 1767331187195619683, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2870252066242786409, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
       propertyPath: HealthBar
       value: 
       objectReference: {fileID: 378227666}
     - target: {fileID: 2997631285002235214, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.65
+      value: 12.58
       objectReference: {fileID: 0}
     - target: {fileID: 2997631285002235214, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.22
+      value: 14.06
       objectReference: {fileID: 0}
     - target: {fileID: 2997631285002235214, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1125,37 +1112,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3076039713654465710, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
-      propertyPath: m_SortingOrder
-      value: 11
+    - target: {fileID: 6585785194403233427, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
+      propertyPath: nBull
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 3979149786254063988, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3979149786254063988, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4282736541536066432, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4282736541536066432, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
-      propertyPath: m_SortingOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5232825571552447401, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
-      propertyPath: m_Layer
-      value: 3
+    - target: {fileID: 6585785194403233427, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
+      propertyPath: numBull
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7828969845851802732, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
       propertyPath: m_Name
       value: sapsai
-      objectReference: {fileID: 0}
-    - target: {fileID: 7900170443985097169, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
