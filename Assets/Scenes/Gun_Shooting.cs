@@ -6,6 +6,7 @@ public class Gun_Shooting : MonoBehaviour
     public Transform FirePoint;
     public GameObject bulletPrefab;
     public bool Active = false;
+    public int numBullet = 30;
 
     public float bulletForce = 20f;
     private WeaponHold link;
@@ -19,7 +20,12 @@ public class Gun_Shooting : MonoBehaviour
     private void Update()
     {
         // Debug.Log($"Active.Shoot Gun1 = {Active} -- GameObj = {gameObject.name}");
-        if (Input.GetButtonDown("Fire1") && Active) Shoot();
+        if (Input.GetButtonDown("Fire1") && Active && numBullet > 0)
+        {
+            Shoot();
+            numBullet--;
+        }
+        
     }
 
     private void Shoot()

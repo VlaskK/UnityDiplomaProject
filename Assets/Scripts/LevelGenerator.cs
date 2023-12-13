@@ -1,8 +1,10 @@
 using UnityEngine;
-
 using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
+using System;
+using Random = System.Random;
+
 
 public class LevelGenerator : MonoBehaviour
 {
@@ -10,13 +12,21 @@ public class LevelGenerator : MonoBehaviour
     public GameObject wallPrefab;
     public GameObject floorPrefab;
     public GameObject doorPrefab;
+    public GameObject mob1Prefab;
+    public GameObject mob2Prefab;
     private GameObject player;
+    private Random rnd = new Random();
+    
     
     public enum TileType
     {
         Wall,
         Floor,
-        Door
+        Door,
+        Mob1,
+        Mob2,
+        Gun1,
+        Gun2
     }
     void Start()
     {
@@ -34,7 +44,7 @@ public class LevelGenerator : MonoBehaviour
 
             for (int x = 0; x < chars.Length; x++)
             {
-                Vector2 tilePosition = new Vector2(x, -y);
+                Vector3 tilePosition = new Vector3(x, -y, 0);
 
                 switch (chars[x])
                 {
@@ -54,9 +64,18 @@ public class LevelGenerator : MonoBehaviour
                         player.transform.position = new Vector3(x, -y, 0);
                         InstantiateTile(floorPrefab, tilePosition, TileType.Floor);
                         break;
-                    
+
                     case 'M':
-                        
+                        InstantiateTile(floorPrefab, tilePosition, TileType.Floor);
+                        int mobNumber = rnd.Next(2);
+                        if (mobNumber == 0)
+                        {
+                            InstantiateTile(mob1Prefab, tilePosition, TileType.Mob1);
+                        }
+                        else
+                        {
+                            InstantiateTile(mob2Prefab, tilePosition, TileType.Mob2);
+                        }
                         break;
                     // Другие символы могут быть добавлены в зависимости от ваших требований
                 }
@@ -64,7 +83,7 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    void InstantiateTile(GameObject prefab, Vector2 position, TileType type)
+    void InstantiateTile(GameObject prefab, Vector3 position, TileType type)
     {
         GameObject tile = Instantiate(prefab, position, Quaternion.identity);
         Tile tileData = new Tile();
