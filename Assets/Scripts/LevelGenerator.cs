@@ -10,6 +10,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject wallPrefab;
     public GameObject floorPrefab;
     public GameObject doorPrefab;
+    private GameObject player;
     
     public enum TileType
     {
@@ -19,6 +20,7 @@ public class LevelGenerator : MonoBehaviour
     }
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         GenerateLevel();
     }
 
@@ -47,7 +49,10 @@ public class LevelGenerator : MonoBehaviour
                     case 'D':
                         InstantiateTile(doorPrefab, tilePosition, TileType.Door);
                         break;
-
+                    case 'S':
+                        player.transform.position = new Vector3(x, -y, 0);
+                        InstantiateTile(floorPrefab, tilePosition, TileType.Floor);
+                        break;
                     // Другие символы могут быть добавлены в зависимости от ваших требований
                 }
             }
