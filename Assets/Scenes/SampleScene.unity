@@ -422,6 +422,10 @@ MonoBehaviour:
   wallPrefab: {fileID: 4629750254264579039, guid: 43e4de94b08e9ab4397eec1683ce8ac7, type: 3}
   floorPrefab: {fileID: 4066399992705283558, guid: 297d2dff498f40444a943e9c0ed95d4b, type: 3}
   doorPrefab: {fileID: 5420820006103459287, guid: f011f701351987148aae39a0db786629, type: 3}
+  mob1Prefab: {fileID: 3246146397071108158, guid: fd09396b8dcb40342b81a4366d800920, type: 3}
+  mob2Prefab: {fileID: 504080443647233992, guid: 3b8b0727b05b3cb4f81decd300ca6413, type: 3}
+  gun1Prefab: {fileID: 3458734394430884641, guid: 891ed556aa2f7894bb36e2c9adec7c78, type: 3}
+  gun2Prefab: {fileID: 7720163994835765931, guid: b515ccee0f063d34cb87f6ad4be837d0, type: 3}
 --- !u!1 &535541740
 GameObject:
   m_ObjectHideFlags: 0
