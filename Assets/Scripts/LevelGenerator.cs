@@ -14,8 +14,11 @@ public class LevelGenerator : MonoBehaviour
     public GameObject doorPrefab;
     public GameObject mob1Prefab;
     public GameObject mob2Prefab;
+    public GameObject gun1Prefab;
+    public GameObject gun2Prefab;
     private GameObject player;
     private Random rnd = new Random();
+    private int randNum;
     
     
     public enum TileType
@@ -67,14 +70,27 @@ public class LevelGenerator : MonoBehaviour
 
                     case 'M':
                         InstantiateTile(floorPrefab, tilePosition, TileType.Floor);
-                        int mobNumber = rnd.Next(2);
-                        if (mobNumber == 0)
+                        randNum = rnd.Next(1, 3);
+                        if (randNum == 1)
                         {
                             InstantiateTile(mob1Prefab, tilePosition, TileType.Mob1);
                         }
                         else
                         {
                             InstantiateTile(mob2Prefab, tilePosition, TileType.Mob2);
+                        }
+                        break;
+                    
+                    case 'G':
+                        InstantiateTile(floorPrefab, tilePosition, TileType.Floor);
+                        randNum = rnd.Next(1, 3);
+                        if (randNum == 1)
+                        {
+                            InstantiateTile(gun1Prefab, tilePosition, TileType.Gun1);
+                        }
+                        else
+                        {
+                            InstantiateTile(gun2Prefab, tilePosition, TileType.Gun2);
                         }
                         break;
                     // Другие символы могут быть добавлены в зависимости от ваших требований

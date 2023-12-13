@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponHold : MonoBehaviour
 {
     public bool hold;
     public Transform holdPoint;
     public Transform linePoint;
-
+    
+    public Text nBull;
     private Animator anime;
     private Gun_Shooting shoot;
     private readonly float dist = 3;
@@ -31,7 +33,7 @@ public class WeaponHold : MonoBehaviour
         direction3d.Set(linePoint.position.x, linePoint.position.y, 0);
         
         anime.SetBool("Hold", hold);
-
+        
         if (Input.GetKeyUp(KeyCode.F))
         {
             if (!hold)
@@ -43,23 +45,26 @@ public class WeaponHold : MonoBehaviour
                 if (hit.collider != null && hit.collider.tag == "Gun")
                 {
                     hold = true;
-                    hit.collider.gameObject.GetComponent<Gun_Shooting>().Active = true;
+                    shoot = hit.collider.gameObject.GetComponent<Gun_Shooting>();
+                    shoot.Active = true;
                     hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 7;
                     gameObject.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
-                    Debug.Log($"Name -- {gameObject.name}");
+                    nBull.text = $"{shoot.numBullet}";
+                    // Debug.Log($"Name -- {gameObject.name}");
                     // Debug.Log($"Active = {shoot.Active} -- GameObj = {hit.collider.gameObject.name}");
                 }
+                
             }
             else
             {
                 hold = false;
-                hit.collider.gameObject.GetComponent<Gun_Shooting>().Active = false;
+                shoot.Active = false;
                 hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 gameObject.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
+                nBull.text = "Нож";
                 if (hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
                     hit.collider.gameObject.transform.position = new Vector3(transform.localScale.x,
                         transform.localScale.y, 0);
-                    
             }
         }
 
@@ -74,5 +79,10 @@ public class WeaponHold : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, direction3d);
+    }
+
+    public void NBull()
+    {
+        nBull.text = $"{shoot.numBullet}";
     }
 }
