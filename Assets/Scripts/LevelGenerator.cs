@@ -49,9 +49,14 @@ public class LevelGenerator : MonoBehaviour
                     case 'D':
                         InstantiateTile(doorPrefab, tilePosition, TileType.Door);
                         break;
+                    
                     case 'S':
                         player.transform.position = new Vector3(x, -y, 0);
                         InstantiateTile(floorPrefab, tilePosition, TileType.Floor);
+                        break;
+                    
+                    case 'M':
+                        
                         break;
                     // Другие символы могут быть добавлены в зависимости от ваших требований
                 }
