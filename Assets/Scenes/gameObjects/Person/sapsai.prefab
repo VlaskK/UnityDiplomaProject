@@ -737,7 +737,7 @@ MonoBehaviour:
   hold: 0
   holdPoint: {fileID: 3984474734991297530}
   linePoint: {fileID: 3269064775725805661}
-  numBull: {fileID: 0}
+  nBull: {fileID: 0}
 --- !u!114 &2870252066242786409
 MonoBehaviour:
   m_ObjectHideFlags: 0

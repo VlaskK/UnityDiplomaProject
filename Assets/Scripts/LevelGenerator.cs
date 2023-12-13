@@ -18,7 +18,6 @@ public class LevelGenerator : MonoBehaviour
     public GameObject gun2Prefab;
     private GameObject player;
     private Random rnd = new Random();
-    private int randNum;
     
     
     public enum TileType
@@ -70,8 +69,7 @@ public class LevelGenerator : MonoBehaviour
 
                     case 'M':
                         InstantiateTile(floorPrefab, tilePosition, TileType.Floor);
-                        randNum = rnd.Next(1, 3);
-                        if (randNum == 1)
+                        if (rnd.Next(1, 3) == 1)
                         {
                             InstantiateTile(mob1Prefab, tilePosition, TileType.Mob1);
                         }
@@ -83,8 +81,7 @@ public class LevelGenerator : MonoBehaviour
                     
                     case 'G':
                         InstantiateTile(floorPrefab, tilePosition, TileType.Floor);
-                        randNum = rnd.Next(1, 3);
-                        if (randNum == 1)
+                        if (rnd.Next(1, 3) == 1)
                         {
                             InstantiateTile(gun1Prefab, tilePosition, TileType.Gun1);
                         }
