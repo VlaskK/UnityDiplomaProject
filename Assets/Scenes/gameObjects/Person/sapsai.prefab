@@ -413,7 +413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2468545199082221481}
   - component: {fileID: 3076039713654465710}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -737,6 +737,7 @@ MonoBehaviour:
   hold: 0
   holdPoint: {fileID: 3984474734991297530}
   linePoint: {fileID: 3269064775725805661}
+  nBull: {fileID: 0}
 --- !u!114 &2870252066242786409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -799,6 +800,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4989918650695587337}
     m_Modifications:
+    - target: {fileID: 5165100436007113513, guid: cfd8b054dd5877b49bebe5dba9ad2231, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6221916812498746743, guid: cfd8b054dd5877b49bebe5dba9ad2231, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.41
@@ -842,6 +847,10 @@ PrefabInstance:
     - target: {fileID: 7498504955541996350, guid: cfd8b054dd5877b49bebe5dba9ad2231, type: 3}
       propertyPath: m_Name
       value: Knife
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498504955541996350, guid: cfd8b054dd5877b49bebe5dba9ad2231, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

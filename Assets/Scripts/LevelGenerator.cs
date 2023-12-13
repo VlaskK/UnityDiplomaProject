@@ -1,8 +1,10 @@
 using UnityEngine;
-
 using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
+using System;
+using Random = System.Random;
+
 
 public class LevelGenerator : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class LevelGenerator : MonoBehaviour
     public GameObject gun1Prefab;
     public GameObject gun2Prefab;
     private GameObject player;
+    private Random rnd = new Random();
+    
     
     public enum TileType
     {
@@ -42,7 +46,7 @@ public class LevelGenerator : MonoBehaviour
 
             for (int x = 0; x < chars.Length; x++)
             {
-                Vector2 tilePosition = new Vector2(x, -y);
+                Vector3 tilePosition = new Vector3(x, -y, 0);
 
                 switch (chars[x])
                 {
@@ -62,9 +66,29 @@ public class LevelGenerator : MonoBehaviour
                         player.transform.position = new Vector3(x, -y, 0);
                         InstantiateTile(floorPrefab, tilePosition, TileType.Floor);
                         break;
-                    
+
                     case 'M':
-                        
+                        InstantiateTile(floorPrefab, tilePosition, TileType.Floor);
+                        if (rnd.Next(1, 3) == 1)
+                        {
+                            InstantiateTile(mob1Prefab, tilePosition, TileType.Mob1);
+                        }
+                        else
+                        {
+                            InstantiateTile(mob2Prefab, tilePosition, TileType.Mob2);
+                        }
+                        break;
+                    
+                    case 'G':
+                        InstantiateTile(floorPrefab, tilePosition, TileType.Floor);
+                        if (rnd.Next(1, 3) == 1)
+                        {
+                            InstantiateTile(gun1Prefab, tilePosition, TileType.Gun1);
+                        }
+                        else
+                        {
+                            InstantiateTile(gun2Prefab, tilePosition, TileType.Gun2);
+                        }
                         break;
                     // Другие символы могут быть добавлены в зависимости от ваших требований
                 }
@@ -72,7 +96,7 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    void InstantiateTile(GameObject prefab, Vector2 position, TileType type)
+    void InstantiateTile(GameObject prefab, Vector3 position, TileType type)
     {
         GameObject tile = Instantiate(prefab, position, Quaternion.identity);
         Tile tileData = new Tile();

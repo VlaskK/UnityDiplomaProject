@@ -1,18 +1,19 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponHold : MonoBehaviour
 {
     public bool hold;
     public Transform holdPoint;
     public Transform linePoint;
-
+    public Text nBull;
+    
     private Animator anime;
-    private Gun_Shooting shoot;
+    // private Gun_Shooting shoot;
     private readonly float dist = 3;
     
     private RaycastHit2D hit;
-
     private Vector2 direction2d;
     private Vector3 direction3d;
 
@@ -21,7 +22,7 @@ public class WeaponHold : MonoBehaviour
     private void Start()
     {
         anime = GetComponent<Animator>();
-        shoot = GetComponent<Gun_Shooting>();
+        // shoot = GetComponent<Gun_Shooting>();
     }
 
     // Update is called once per frame
@@ -31,7 +32,7 @@ public class WeaponHold : MonoBehaviour
         direction3d.Set(linePoint.position.x, linePoint.position.y, 0);
         
         anime.SetBool("Hold", hold);
-
+        
         if (Input.GetKeyUp(KeyCode.F))
         {
             if (!hold)
@@ -40,26 +41,30 @@ public class WeaponHold : MonoBehaviour
                 hit = Physics2D.Raycast(transform.position, direction2d, dist);
                 // Debug.Log($"{hit.collider} -- {rotator2} -- {hit.point} -- {hit.distance}");
 
-                if (hit.collider != null && hit.collider.tag == "Gun")
+                if (hit.collider != null && hit.collider.CompareTag("Gun"))
                 {
                     hold = true;
-                    hit.collider.gameObject.GetComponent<Gun_Shooting>().Active = true;
+                    Gun_Shooting GunShoot = hit.collider.gameObject.GetComponent<Gun_Shooting>();
+                    GunShoot.Active = true;
                     hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 7;
                     gameObject.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
-                    Debug.Log($"Name -- {gameObject.name}");
+                    nBull.text = $"{GunShoot.numBullet}";
+                    // Debug.Log($"Name -- {gameObject.name}");
                     // Debug.Log($"Active = {shoot.Active} -- GameObj = {hit.collider.gameObject.name}");
                 }
+                
             }
             else
             {
                 hold = false;
-                hit.collider.gameObject.GetComponent<Gun_Shooting>().Active = false;
+                Gun_Shooting GunShoot = hit.collider.gameObject.GetComponent<Gun_Shooting>();
+                GunShoot.Active = false;
                 hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 gameObject.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
+                nBull.text = "Нож";
                 if (hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
                     hit.collider.gameObject.transform.position = new Vector3(transform.localScale.x,
                         transform.localScale.y, 0);
-                    
             }
         }
 
@@ -75,4 +80,9 @@ public class WeaponHold : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, direction3d);
     }
+
+    // public void NBull()
+    // {
+    //     nBull.text = $"{GunShoot.numBullet}";
+    // }
 }
