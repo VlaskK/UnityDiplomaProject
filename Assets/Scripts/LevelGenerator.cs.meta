@@ -4,9 +4,9 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - wallPrefab: {fileID: 4629750254264579039, guid: 2e1e2bde30b7e2549ae568d9d1937b39, type: 3}
-  - floorPrefab: {fileID: 4066399992705283558, guid: f49a12826080aa94f92710e6d7e52ec1, type: 3}
-  - doorPrefab: {instanceID: 0}
+  - wallPrefab: {fileID: 4629750254264579039, guid: 43e4de94b08e9ab4397eec1683ce8ac7, type: 3}
+  - floorPrefab: {fileID: 4066399992705283558, guid: 297d2dff498f40444a943e9c0ed95d4b, type: 3}
+  - doorPrefab: {fileID: 5420820006103459287, guid: f011f701351987148aae39a0db786629, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
