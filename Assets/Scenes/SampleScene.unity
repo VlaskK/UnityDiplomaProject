@@ -1112,14 +1112,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6585785194403233427, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
-      propertyPath: nBull
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6585785194403233427, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
-      propertyPath: numBull
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7828969845851802732, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
       propertyPath: m_Name
       value: sapsai
