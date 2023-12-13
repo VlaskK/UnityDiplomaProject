@@ -1133,6 +1133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sapsai
       objectReference: {fileID: 0}
+    - target: {fileID: 7900170443985097169, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
