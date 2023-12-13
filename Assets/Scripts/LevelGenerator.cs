@@ -10,13 +10,21 @@ public class LevelGenerator : MonoBehaviour
     public GameObject wallPrefab;
     public GameObject floorPrefab;
     public GameObject doorPrefab;
+    public GameObject mob1Prefab;
+    public GameObject mob2Prefab;
+    public GameObject gun1Prefab;
+    public GameObject gun2Prefab;
     private GameObject player;
     
     public enum TileType
     {
         Wall,
         Floor,
-        Door
+        Door,
+        Mob1,
+        Mob2,
+        Gun1,
+        Gun2
     }
     void Start()
     {
