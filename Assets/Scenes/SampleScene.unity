@@ -230,7 +230,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
-  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -325,26 +324,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1597323201}
---- !u!114 &519420034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c5e2cb16e303a4f80949fbd05c05f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelFileName: Assets/Scenes/level_1.txt
-  wallPrefab: {fileID: 4629750254264579039, guid: 43e4de94b08e9ab4397eec1683ce8ac7, type: 3}
-  floorPrefab: {fileID: 4066399992705283558, guid: 297d2dff498f40444a943e9c0ed95d4b, type: 3}
-  doorPrefab: {fileID: 5420820006103459287, guid: f011f701351987148aae39a0db786629, type: 3}
-  mob1Prefab: {fileID: 3246146397071108158, guid: fd09396b8dcb40342b81a4366d800920, type: 3}
-  mob2Prefab: {fileID: 504080443647233992, guid: 3b8b0727b05b3cb4f81decd300ca6413, type: 3}
-  gun1Prefab: {fileID: 3458734394430884641, guid: 891ed556aa2f7894bb36e2c9adec7c78, type: 3}
-  gun2Prefab: {fileID: 7720163994835765931, guid: b515ccee0f063d34cb87f6ad4be837d0, type: 3}
 --- !u!1 &535541740
 GameObject:
   m_ObjectHideFlags: 0
