@@ -149,7 +149,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 885497923988729435, guid: 471eb85af1a6dd548a41a6dd5292a619, type: 3}
   Active: 0
   numBullet: 20
-  bulletForce: 15
+  bulletForce: 5
 --- !u!114 &6721339831329577422
 MonoBehaviour:
   m_ObjectHideFlags: 0

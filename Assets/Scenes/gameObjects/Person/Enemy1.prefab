@@ -198,7 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4000796071218114924, guid: 9e231caab1e0d4a4897fe48a4f16c951, type: 3}
   bulletPos: {fileID: 5714370209251901601}
-  enemyRange: 20
+  enemyRange: 5
   moveSpeed: 1
   moveDistance: 5
 --- !u!114 &1007022393592845062
