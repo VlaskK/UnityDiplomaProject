@@ -45,8 +45,8 @@ GameObject:
   - component: {fileID: 2655952371649442459}
   - component: {fileID: 5564212812100468447}
   - component: {fileID: 1007022393592845062}
-  - component: {fileID: -2904978970351919756}
   - component: {fileID: 5416428461198342373}
+  - component: {fileID: -2904978970351919756}
   m_Layer: 8
   m_Name: Enemy1
   m_TagString: Enemy1
@@ -215,6 +215,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthAmount: 100
   rb: {fileID: 8498722026143743869}
+--- !u!114 &5416428461198342373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3246146397071108158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685ded6ea2f305844af72a59b0b45c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  position: {x: 0, y: 0}
 --- !u!95 &-2904978970351919756
 Animator:
   serializedVersion: 5
@@ -236,17 +250,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5416428461198342373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3246146397071108158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 685ded6ea2f305844af72a59b0b45c08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 3
-  position: {x: 0, y: 0}
