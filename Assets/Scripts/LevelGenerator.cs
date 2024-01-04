@@ -16,6 +16,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject mob2Prefab;
     public GameObject gun1Prefab;
     public GameObject gun2Prefab;
+    public GameObject coinPrefab;
     private GameObject player;
     private Random rnd = new Random();
     
@@ -28,7 +29,8 @@ public class LevelGenerator : MonoBehaviour
         Mob1,
         Mob2,
         Gun1,
-        Gun2
+        Gun2,
+        Coin
     }
     void Start()
     {
@@ -89,6 +91,10 @@ public class LevelGenerator : MonoBehaviour
                         {
                             InstantiateTile(gun2Prefab, tilePosition, TileType.Gun2);
                         }
+                        break;
+                    case 'C':
+                        player.transform.position = new Vector3(x, -y, 0);
+                        InstantiateTile(coinPrefab, tilePosition, TileType.Coin);
                         break;
                     // Другие символы могут быть добавлены в зависимости от ваших требований
                 }

@@ -21,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
         if (healthAmount <= 0)
         {
             Destroy(gameObject);
+			ScoreCounter.instance.increaseFrag(1);
         }
     }
 

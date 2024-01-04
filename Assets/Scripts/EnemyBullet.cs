@@ -37,13 +37,12 @@ public class EnemyBullet : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            col.gameObject.GetComponent<playerHealth>().TakeDamage(20);
+            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(20);
             Destroy(gameObject);
         }
         
         if (col.gameObject.CompareTag("Wall"))
         {
-            Debug.Log("Wall hit");
             Destroy(gameObject);
         }
     }
