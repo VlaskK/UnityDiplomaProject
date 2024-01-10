@@ -1,14 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : DifficultySettings
 {
-
-    public float healthAmount = 50f;
+    
+    public float healthAmount = EnemyStartHealth;
     public Rigidbody2D rb;
     
+    private float enemyPrevHealth = EnemyStartHealth;
+    public static event Action<float> OnEnemyDamageTaken;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckDamage();
         if (healthAmount <= 0)
         {
             Destroy(gameObject);
@@ -30,5 +35,27 @@ public class EnemyHealth : MonoBehaviour
         healthAmount -= damage;
         
         gameObject.GetComponent<Animator>().SetTrigger("Damage");
+    }
+    
+    
+    public void CheckDamage()
+    {
+        timer += Time.deltaTime;
+        
+        if (timer > recordTime)
+        {
+            damageTaken = enemyPrevHealth - healthAmount;
+            Debug.Log("damage statistics: " + damageTaken + "damage taked during " + recordTime);
+
+            if (damageTaken < 40) 
+            {
+                OnEnemyDamageTaken?.Invoke(damageTaken);
+            }
+
+            timer = 0;
+            damageTaken = 0;
+            enemyPrevHealth = healthAmount;
+        }
+        
     }
 }

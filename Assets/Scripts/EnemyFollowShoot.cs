@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFollowShoot : MonoBehaviour
+public class EnemyFollowShoot : DifficultySettings
 {
     public GameObject bullet;
     public Transform bulletPos;
-    public float enemyRange = 10;
-    public float moveSpeed = 1;
     public float moveDistance = 5;
     
     private float chaseDistance = 10;
 
     private GameObject player;
-    private float timer;
     private bool movingRight = true;
     private float initialPositionX;
+    
+    // for tanky playstyle 
+    private float playerPrevDamageTaken = 0;
+    private float enemyPrevDamageTaken = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class EnemyFollowShoot : MonoBehaviour
     void Update()
     {
         float distance = Vector2.Distance(transform.position, player.transform.position);
-        if (distance < enemyRange)
+        if (distance < EnemyRange)
         {
             timer += Time.deltaTime;
             if (timer > 2)
@@ -48,6 +49,72 @@ public class EnemyFollowShoot : MonoBehaviour
         }
     }
 
+
+	private void OnEnable() {
+        // PlayerHealth.OnPlayerDamageTaken += HandlePlayerDamageTaken;
+        // EnemyHealth.OnEnemyDamageTaken += HandleEnemyDamageTaken;
+        PlayerMovement.OnRotationStatistic += HandlePlayerRotation;
+    }
+
+    private void OnDisable() {
+        // PlayerHealth.OnPlayerDamageTaken -= HandlePlayerDamageTaken;
+        // EnemyHealth.OnEnemyDamageTaken -= HandleEnemyDamageTaken;
+        PlayerMovement.OnRotationStatistic -= HandlePlayerRotation;
+    }
+
+
+    private void HandlePlayerRotation(int rotationCount)
+    {
+        if (rotationCount > 200)
+        {
+            ChangeEnemyDifficulty(3);
+            return;
+        } else if (rotationCount > 150)
+        {
+            ChangeEnemyDifficulty(2);
+            return;
+        }
+        
+        ChangeEnemyDifficulty(1);
+
+    }
+
+    private void HandlePlayerDamageTaken(float damageTaken) {
+        //TODO make a right multiplier calculation
+        float difficultyMultiplier = CalculateDMByPlayerDamage(damageTaken);
+        ChangeEnemyStats(difficultyMultiplier); // Подумать
+    }
+
+    private float CalculateDMByPlayerDamage(float damageTaken)
+    {
+        if (damageTaken - playerPrevDamageTaken < PlayerStartingHealth * 0.2)
+        {
+            Debug.Log("decrease stats increase 0.8");
+            // Если игрок за предыдущий сегмент потерял больше 20% процентов здоровья, то нужно уменьшить характеристики врагов
+            return 0.8f;
+        }
+        playerPrevDamageTaken = damageTaken;
+        return 1;
+    }
+
+    private void HandleEnemyDamageTaken(float damageTaken)
+    {
+        float difficultyMultiplier = CalculateDMByEnemyDamage(damageTaken);
+        // ChangeEnemyStats(difficultyMultiplier); ПОдумать
+    }
+    
+    private float CalculateDMByEnemyDamage(float damageTaken)
+    {
+        if (damageTaken - enemyPrevDamageTaken > EnemyStartHealth * 0.2)
+        {
+            Debug.Log("enemy stats increase 1.2");
+            // Если игрок за предыдущий сегмент нанес больше 20% урона мобам, то нужно увеличить характеристики мобов
+            return 1.2f;
+        }
+        enemyPrevDamageTaken = damageTaken;
+        return 1;
+    }
+
     void shoot()
     {
         Instantiate(bullet, bulletPos.position, Quaternion.identity);
@@ -57,7 +124,7 @@ public class EnemyFollowShoot : MonoBehaviour
     {
         if (movingRight)
         {
-            transform.Translate(Vector2.right * (moveSpeed * Time.deltaTime));
+            transform.Translate(Vector2.right * (EnemySpeed * Time.deltaTime));
             if (transform.position.x > (initialPositionX + moveDistance))
             {
                 movingRight = false;
@@ -65,7 +132,7 @@ public class EnemyFollowShoot : MonoBehaviour
         }
         else
         {
-            transform.Translate(Vector2.left * (moveSpeed * Time.deltaTime));
+            transform.Translate(Vector2.left * (EnemySpeed * Time.deltaTime));
             if (transform.position.x < (initialPositionX - moveDistance))
             {
                 movingRight = true;
@@ -78,7 +145,7 @@ public class EnemyFollowShoot : MonoBehaviour
         transform.position = Vector2.MoveTowards(
             this.transform.position,
             player.transform.position,
-            moveSpeed * Time.deltaTime
+            EnemySpeed * Time.deltaTime
         );
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
     }

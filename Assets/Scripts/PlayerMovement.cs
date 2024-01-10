@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : DifficultySettings
 {
     private static readonly int SpeedRun = Animator.StringToHash("SpeedRun");
-    public float moveSpeed = DifficultySettings.PlayerMoveSpeed;
+    public float moveSpeed = PlayerMoveSpeed;
 
     public Rigidbody2D rb;
     public Camera cam;
@@ -11,12 +12,13 @@ public class PlayerMovement : DifficultySettings
     private Vector2 mousePos;
     private Vector2 movement;
     private float currentAngle;
-    // private float lastAngle;
-    // public int turnCounter = 0;
-    // public float turnThreshold = 10f; // Угол, который игрок должен преодолеть для поворота
-    //
-    // private float turnTimer = 0f;
-    // private float turnTimerThreshold = 5f;
+
+
+    public static event Action<int> OnRotationStatistic;
+
+    private float prevRotation;
+    private int rotationCount = 0;
+
 
     private void Start()
     {
@@ -31,6 +33,7 @@ public class PlayerMovement : DifficultySettings
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
+        CheckRotation();
 
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
@@ -40,12 +43,12 @@ public class PlayerMovement : DifficultySettings
         {
             anime.SetBool("Speed", false);
         }
-        
-        // Debug.Log("Поворотов сделано: " + turnCounter);
     }
 
     private void FixedUpdate()
     {
+        prevRotation = rb.rotation;
+
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
         Vector2 lookDir = mousePos - rb.position;
@@ -53,5 +56,21 @@ public class PlayerMovement : DifficultySettings
 
         rb.rotation = currentAngle - 90f;
 
+        if (Math.Abs(prevRotation - rb.rotation) > 10)
+        {
+            Debug.Log("Поворот" + rotationCount);
+            rotationCount++;
+        }
+    }
+
+    void CheckRotation()
+    {
+        timer += Time.deltaTime;
+        if (timer > recordTime)
+        {
+            OnRotationStatistic.Invoke(rotationCount);
+            rotationCount = 0;
+            timer = 0;
+        }
     }
 }

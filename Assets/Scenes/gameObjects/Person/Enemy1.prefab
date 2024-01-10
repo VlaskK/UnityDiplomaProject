@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0495b27434b44f44afa69280566be71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 4000796071218114924, guid: 9e231caab1e0d4a4897fe48a4f16c951, type: 3}
+  bullet: {fileID: 4954296599992880274, guid: bc45405bd6ca6e3489c25d2f0c50c125, type: 3}
   bulletPos: {fileID: 5714370209251901601}
   enemyRange: 5
   moveSpeed: 1
