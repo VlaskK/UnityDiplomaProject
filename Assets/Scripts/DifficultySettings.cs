@@ -11,6 +11,9 @@ public class DifficultySettings : MonoBehaviour
     protected static int[]
         baseScoreValue = { 5, 7, 10, 15, 20, 25, 30, 37, 45, 55, 0, 5 }; //score value for hitting enemy once
 
+    protected static int coinsWinCondition = 1;
+    protected static int fragsWinCondition = 10;
+    
     //Player Variables
     protected static float PlayerMoveSpeed = 8;
     protected static float PlayerStartingHealth = 100f;
@@ -76,4 +79,10 @@ public class DifficultySettings : MonoBehaviour
         EnemyStartHealth = 10;
         EnemyRange = 10f;
     }
+    
+    public void EndLevel()
+    {
+        
+    }
+    
 }

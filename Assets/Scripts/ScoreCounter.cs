@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ScoreCounter : MonoBehaviour
+public class ScoreCounter : DifficultySettings
 {
     public static ScoreCounter instance;
 
@@ -13,6 +13,8 @@ public class ScoreCounter : MonoBehaviour
 
     public int currentCoins = 0;
     public int fragPoints = 0;
+    
+    public static event Action<int> OnEndLevel;
 
     private void Awake()
     {
@@ -28,7 +30,19 @@ public class ScoreCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentCoins > coinsWinCondition)
+        {
+            //end level
+            currentCoins = 0;
+            OnEndLevel.Invoke(0);
+        }
+
+        if (fragPoints > fragsWinCondition)
+        {
+            //end level
+            fragPoints = 0;
+            OnEndLevel.Invoke(0);
+        }
     }
 
     public void increaseCoins(int v)

@@ -51,14 +51,10 @@ public class EnemyFollowShoot : DifficultySettings
 
 
 	private void OnEnable() {
-        // PlayerHealth.OnPlayerDamageTaken += HandlePlayerDamageTaken;
-        // EnemyHealth.OnEnemyDamageTaken += HandleEnemyDamageTaken;
         PlayerMovement.OnRotationStatistic += HandlePlayerRotation;
     }
 
     private void OnDisable() {
-        // PlayerHealth.OnPlayerDamageTaken -= HandlePlayerDamageTaken;
-        // EnemyHealth.OnEnemyDamageTaken -= HandleEnemyDamageTaken;
         PlayerMovement.OnRotationStatistic -= HandlePlayerRotation;
     }
 
@@ -77,42 +73,6 @@ public class EnemyFollowShoot : DifficultySettings
         
         ChangeEnemyDifficulty(1);
 
-    }
-
-    private void HandlePlayerDamageTaken(float damageTaken) {
-        //TODO make a right multiplier calculation
-        float difficultyMultiplier = CalculateDMByPlayerDamage(damageTaken);
-        ChangeEnemyStats(difficultyMultiplier); // Подумать
-    }
-
-    private float CalculateDMByPlayerDamage(float damageTaken)
-    {
-        if (damageTaken - playerPrevDamageTaken < PlayerStartingHealth * 0.2)
-        {
-            Debug.Log("decrease stats increase 0.8");
-            // Если игрок за предыдущий сегмент потерял больше 20% процентов здоровья, то нужно уменьшить характеристики врагов
-            return 0.8f;
-        }
-        playerPrevDamageTaken = damageTaken;
-        return 1;
-    }
-
-    private void HandleEnemyDamageTaken(float damageTaken)
-    {
-        float difficultyMultiplier = CalculateDMByEnemyDamage(damageTaken);
-        // ChangeEnemyStats(difficultyMultiplier); ПОдумать
-    }
-    
-    private float CalculateDMByEnemyDamage(float damageTaken)
-    {
-        if (damageTaken - enemyPrevDamageTaken > EnemyStartHealth * 0.2)
-        {
-            Debug.Log("enemy stats increase 1.2");
-            // Если игрок за предыдущий сегмент нанес больше 20% урона мобам, то нужно увеличить характеристики мобов
-            return 1.2f;
-        }
-        enemyPrevDamageTaken = damageTaken;
-        return 1;
     }
 
     void shoot()

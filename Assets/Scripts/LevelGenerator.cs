@@ -6,7 +6,7 @@ using System;
 using Random = System.Random;
 
 
-public class LevelGenerator : MonoBehaviour
+public class LevelGenerator : DifficultySettings
 {
     public string levelFileName = "Assets/Scenes/level_1.txt";
     public GameObject wallPrefab;
@@ -19,8 +19,9 @@ public class LevelGenerator : MonoBehaviour
     public GameObject coinPrefab;
     private GameObject player;
     private Random rnd = new Random();
-    
-    
+    private string[] mapLines;
+
+
     public enum TileType
     {
         Wall,
@@ -35,16 +36,25 @@ public class LevelGenerator : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        mapLines = File.ReadAllLines(levelFileName);
         GenerateLevel();
+    }
+    
+    
+    private void OnEnable() {
+        ScoreCounter.OnEndLevel += HandleGenerateNextLvl;
+    }
+
+    private void OnDisable() {
+        ScoreCounter.OnEndLevel -= HandleGenerateNextLvl;
     }
 
     void GenerateLevel()
     {
-        string[] lines = File.ReadAllLines(levelFileName);
-
-        for (int y = 0; y < lines.Length; y++)
+        Debug.Log(mapLines);
+        for (int y = 0; y < mapLines.Length; y++)
         {
-            char[] chars = lines[y].ToCharArray();
+            char[] chars = mapLines[y].ToCharArray();
 
             for (int x = 0; x < chars.Length; x++)
             {
@@ -111,4 +121,13 @@ public class LevelGenerator : MonoBehaviour
         tile.GetComponent<Tile>().type = tileData.type;
         tile.GetComponent<Tile>().position = tileData.position;
     }
+
+    void HandleGenerateNextLvl(int v)
+    {
+        Debug.Log("HERE");
+        MapGenerator.GenerateMap(5, 15, 15, "Assets/Scenes/level_2.txt");
+        mapLines = File.ReadAllLines("Assets/Scenes/level_2.txt");
+        GenerateLevel();
+    }
+
 }
