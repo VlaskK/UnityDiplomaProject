@@ -255,6 +255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28c5e2cb16e303a4f80949fbd05c05f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recordTime: 10
+  timer: 0
+  damageTaken: 0
   levelFileName: Assets/Scenes/level_1.txt
   wallPrefab: {fileID: 4629750254264579039, guid: 43e4de94b08e9ab4397eec1683ce8ac7, type: 3}
   floorPrefab: {fileID: 4066399992705283558, guid: 297d2dff498f40444a943e9c0ed95d4b, type: 3}
@@ -372,6 +375,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f7bc23ee4b486c8800b4201e10b133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recordTime: 10
+  timer: 0
+  damageTaken: 0
   coinText: {fileID: 884349912}
   fragText: {fileID: 1792041300}
   currentCoins: 0
@@ -962,9 +968,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6585785194403233427, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 3458734394430884641, guid: 891ed556aa2f7894bb36e2c9adec7c78, type: 3}
+    - target: {fileID: 6585785194403233427, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
+      propertyPath: hold
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585785194403233427, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
       propertyPath: nBull
       value: 
       objectReference: {fileID: 1704032167}
+    - target: {fileID: 6585785194403233427, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 7798201579211962740, guid: bfa489dbade3cb146b56bd51894c3792, type: 3}
     - target: {fileID: 7828969845851802732, guid: 1d8afc61f5322244da75230a06a58f50, type: 3}
       propertyPath: m_Name
       value: sapsai

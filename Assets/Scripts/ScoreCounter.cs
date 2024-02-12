@@ -30,31 +30,34 @@ public class ScoreCounter : DifficultySettings
     // Update is called once per frame
     void Update()
     {
-        if (currentCoins > coinsWinCondition)
-        {
-            //end level
-            currentCoins = 0;
-            OnEndLevel.Invoke(0);
-        }
-
-        if (fragPoints > fragsWinCondition)
-        {
-            //end level
-            fragPoints = 0;
-            OnEndLevel.Invoke(0);
-        }
     }
 
     public void increaseCoins(int v)
     {
         currentCoins += v;
         coinText.text = "COINS: " + currentCoins.ToString();
+        
+        if (currentCoins > coinsWinCondition)
+        {
+            //end level
+            currentCoins = 0;
+            coinText.text = "COINS: " + currentCoins.ToString();
+            OnEndLevel.Invoke(0);
+        }
     }
 
     public void increaseFrag(int v)
     {
         fragPoints += v;
         fragText.text = "FRAGS: " + fragPoints.ToString();
+        
+        if (fragPoints > fragsWinCondition)
+        {
+            //end level
+            fragPoints = 0;
+            fragText.text = "FRAGS: " + fragPoints.ToString();
+            OnEndLevel.Invoke(0);
+        }
     }
 
 }

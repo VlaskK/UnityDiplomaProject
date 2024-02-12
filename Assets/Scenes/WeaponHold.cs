@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class WeaponHold : MonoBehaviour
 {
     public bool hold;
+    public GameObject gun;
     public Transform holdPoint;
     public Transform linePoint;
     public Text nBull;
@@ -16,6 +17,7 @@ public class WeaponHold : MonoBehaviour
     private RaycastHit2D hit;
     private Vector2 direction2d;
     private Vector3 direction3d;
+    
 
 
     // Start is called before the first frame update
@@ -32,6 +34,19 @@ public class WeaponHold : MonoBehaviour
         direction3d.Set(linePoint.position.x, linePoint.position.y, 0);
         
         anime.SetBool("Hold", hold);
+        
+        // if (gun)
+        // {
+        //     Physics2D.queriesStartInColliders = false;
+        //     hit = Physics2D.Raycast(transform.position, direction2d, dist);
+        //     hold = true;
+        //     Gun_Shooting GunShoot = gun.GetComponent<Gun_Shooting>();
+        //     GunShoot.Active = true;
+        //     gun.GetComponent<SpriteRenderer>().sortingOrder = 7;
+        //     // gameObject.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
+        //     nBull.text = $"{GunShoot.numBullet}";
+        // }
+        
         
         if (Input.GetKeyUp(KeyCode.F))
         {
@@ -72,6 +87,8 @@ public class WeaponHold : MonoBehaviour
         {
             hit.collider.gameObject.transform.position = new Vector3(holdPoint.position.x, holdPoint.position.y, 1);
             hit.collider.gameObject.transform.rotation = transform.rotation;
+            //gun.transform.position = new Vector3(holdPoint.position.x, holdPoint.position.y, 1);
+            //gun.transform.rotation = transform.rotation;
         }
     }
 
@@ -81,8 +98,4 @@ public class WeaponHold : MonoBehaviour
         Gizmos.DrawLine(transform.position, direction3d);
     }
 
-    // public void NBull()
-    // {
-    //     nBull.text = $"{GunShoot.numBullet}";
-    // }
 }

@@ -20,6 +20,8 @@ public class LevelGenerator : DifficultySettings
     private GameObject player;
     private Random rnd = new Random();
     private string[] mapLines;
+    
+    private List<GameObject> generatedObjects;
 
 
     public enum TileType
@@ -37,6 +39,7 @@ public class LevelGenerator : DifficultySettings
     {
         player = GameObject.FindGameObjectWithTag("Player");
         mapLines = File.ReadAllLines(levelFileName);
+        generatedObjects = new List<GameObject>();
         GenerateLevel();
     }
     
@@ -106,7 +109,6 @@ public class LevelGenerator : DifficultySettings
                         player.transform.position = new Vector3(x, -y, 0);
                         InstantiateTile(coinPrefab, tilePosition, TileType.Coin);
                         break;
-                    // Другие символы могут быть добавлены в зависимости от ваших требований
                 }
             }
         }
@@ -115,6 +117,7 @@ public class LevelGenerator : DifficultySettings
     void InstantiateTile(GameObject prefab, Vector3 position, TileType type)
     {
         GameObject tile = Instantiate(prefab, position, Quaternion.identity);
+        generatedObjects.Add(tile);
         Tile tileData = new Tile();
         tileData.type = type;
         tileData.position = position;
@@ -122,11 +125,20 @@ public class LevelGenerator : DifficultySettings
         tile.GetComponent<Tile>().position = tileData.position;
     }
 
+    void ClearLevel()
+    {
+        foreach (GameObject obj in generatedObjects)
+        {
+            Destroy(obj);
+        }
+        generatedObjects.Clear();
+    }
+
     void HandleGenerateNextLvl(int v)
     {
-        Debug.Log("HERE");
-        MapGenerator.GenerateMap(5, 15, 15, "Assets/Scenes/level_2.txt");
+        MapGenerator.GenerateMap(10, 3, 3, "Assets/Scenes/level_2.txt");
         mapLines = File.ReadAllLines("Assets/Scenes/level_2.txt");
+        ClearLevel();
         GenerateLevel();
     }
 

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 7
   m_Sprite: {fileID: 32650915, guid: dcd5fbb58dbf76c4ab14c24039fc16a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 5757604083641027181}
   bulletPrefab: {fileID: 885497923988729435, guid: 471eb85af1a6dd548a41a6dd5292a619, type: 3}
-  Active: 0
+  Active: 1
   numBullet: 20
   bulletForce: 5
 --- !u!114 &6721339831329577422
