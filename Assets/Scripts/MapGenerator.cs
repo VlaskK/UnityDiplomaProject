@@ -6,8 +6,6 @@ using System.Collections.Generic;
 class MapGenerator
 {
     private static Random rand = new Random();
-    
-    private int[] sideLine = Array.Empty<int>();
 
     public static void GenerateMap(
         int coinAmount,
@@ -19,35 +17,7 @@ class MapGenerator
     )
     {
         char[,] levelMap = new char[height, width];
-        
-        
-        // for (int i = 0; i < height; i++)
-        // {
-        //     for (int j = 0; j < width; j++)
-        //     {
-        //         levelMap[i, j] = '#';
-        //     }
-        // }
-        //
-        //
-        // int currentX = 1;
-        // while (currentX < width - 1)
-        // {
-        //     int passageWidth = rand.Next(4, 11); // случайная ширина прохода от 4 до 10
-        //     for (int y = 0; y < height; y++)
-        //     {
-        //         for (int x = currentX; x < width && x < currentX + passageWidth; x++)
-        //         {
-        //             if (!isInBorder(x, y, height, width))
-        //             {
-        //                 levelMap[y, x] = '.';
-        //             }
-        //         }
-        //     }
-        //     
-        //     currentX += passageWidth + 1;
-        // }
-        
+
         MakeWalls(levelMap, height, width);
         MakeWay(levelMap, height, width);
 
@@ -140,18 +110,16 @@ class MapGenerator
                 x = rand.Next(1, width - 1);
                 y = rand.Next(1, height - 1);
             } while (map[y, x] != '.' || (avoidLetter.HasValue && IsInProximity(map, x, y, avoidLetter.Value)));
-            // Проверяем, чтобы позиция была свободна
 
             map[y, x] = letter;
         }
     }
 
-    private static bool IsInProximity(char[,] map, int x, int y, char letter, int radius = 7) // можно изменить радиус
+    private static bool IsInProximity(char[,] map, int x, int y, char letter, int radius = 7)
     {
         int width = map.GetLength(1);
         int height = map.GetLength(0);
-
-        // Начальные и конечные индексы проверки с учетом границ карты и радиуса
+        
         int startX = Math.Max(1, x - radius);
         int endX = Math.Min(width - 2, x + radius);
         int startY = Math.Max(1, y - radius);

@@ -134,8 +134,18 @@ public class LevelGenerator : DifficultySettings
         generatedObjects.Clear();
     }
 
-    void HandleGenerateNextLvl(int v)
+    void HandleGenerateNextLvl(float scoreTime, int coinCount, int fragCount)
     {
+        if (coinCount == coinsWinCondition)
+        {
+            
+        }
+
+        if (fragCount == fragsWinCondition)
+        {
+            
+        }
+        
         MapGenerator.GenerateMap(10, 3, 3, "Assets/Scenes/level_2.txt");
         mapLines = File.ReadAllLines("Assets/Scenes/level_2.txt");
         ClearLevel();
