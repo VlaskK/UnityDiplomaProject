@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,10 @@ public class EnemyFollowShoot : DifficultySettings
     // for tanky playstyle 
     private float playerPrevDamageTaken = 0;
     private float enemyPrevDamageTaken = 0;
+    
+    public static event Action<bool> OnEnemyEngaged;
+    private bool eventTriggered = false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -30,24 +35,26 @@ public class EnemyFollowShoot : DifficultySettings
         float distance = Vector2.Distance(transform.position, player.transform.position);
         if (distance < EnemyRange)
         {
-            timer += Time.deltaTime;
-            if (timer > 2)
+            if (!eventTriggered)
             {
-                timer = 0;
-                shoot();
+                eventTriggered = true;
+                OnEnemyEngaged.Invoke(true);
             }
-            
-            chaseDistance = Vector2.Distance(transform.position, player.transform.position);
-            Vector2 direction = player.transform.position - transform.position;
-            direction.Normalize();
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Chase(angle);
+            attackPlayer();
         }
         else
         {
+            if (eventTriggered)
+            {
+                eventTriggered = false;
+                OnEnemyEngaged.Invoke(false);
+            }
+            
             movement();
         }
     }
+    
+    
 
 
 	private void OnEnable() {
@@ -73,6 +80,22 @@ public class EnemyFollowShoot : DifficultySettings
         
         ChangeEnemyDifficulty(1);
 
+    }
+
+    private void attackPlayer()
+    {
+        timer += Time.deltaTime;
+        if (timer > 2)
+        {
+            timer = 0;
+            shoot();
+        }
+            
+        chaseDistance = Vector2.Distance(transform.position, player.transform.position);
+        Vector2 direction = player.transform.position - transform.position;
+        direction.Normalize();
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Chase(angle);
     }
 
     void shoot()
@@ -109,6 +132,4 @@ public class EnemyFollowShoot : DifficultySettings
         );
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
     }
-
-
 }

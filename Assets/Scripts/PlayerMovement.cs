@@ -15,6 +15,9 @@ public class PlayerMovement : DifficultySettings
 
 
     public static event Action<int> OnRotationStatistic;
+    private bool isEnemyEngaged = false;
+    private int activeEnemies = 0;
+    private int killedEnemies = 0;
 
     private float prevRotation;
     private int rotationCount = 0;
@@ -33,8 +36,6 @@ public class PlayerMovement : DifficultySettings
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        CheckRotation();
-
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             anime.SetBool("Speed", true);
@@ -42,6 +43,14 @@ public class PlayerMovement : DifficultySettings
         else
         {
             anime.SetBool("Speed", false);
+        }
+        
+        if (activeEnemies == 0 && isEnemyEngaged)
+        {
+            Debug.Log("Бой окончен поворотов за бой: " + rotationCount + "Врагов убито(или ушли) за бой" + killedEnemies);
+            isEnemyEngaged = false;
+            rotationCount = 0;
+            killedEnemies = 0;
         }
     }
 
@@ -56,21 +65,35 @@ public class PlayerMovement : DifficultySettings
 
         rb.rotation = currentAngle - 90f;
 
-        if (Math.Abs(prevRotation - rb.rotation) > 10)
+        if (isEnemyEngaged && Math.Abs(prevRotation - rb.rotation) > 10)
         {
-            Debug.Log("Поворот" + rotationCount);
             rotationCount++;
         }
     }
 
-    void CheckRotation()
+    private void OnEnable()
     {
-        timer += Time.deltaTime;
-        if (timer > recordTime)
+        EnemyFollowShoot.OnEnemyEngaged += HandleStatisticsCount;
+        EnemyHealth.OnEnemyEngaged += HandleStatisticsCount;
+    }
+
+    private void OnDisable()
+    {
+        EnemyFollowShoot.OnEnemyEngaged -= HandleStatisticsCount;
+        EnemyHealth.OnEnemyEngaged -= HandleStatisticsCount;
+    }
+
+    private void HandleStatisticsCount(bool enemyEngaged)
+    {
+        if (enemyEngaged)
         {
-            OnRotationStatistic.Invoke(rotationCount);
-            rotationCount = 0;
-            timer = 0;
+            isEnemyEngaged = true;
+            activeEnemies++;
+        }
+        else
+        {
+            activeEnemies--;
+            killedEnemies++;
         }
     }
 }

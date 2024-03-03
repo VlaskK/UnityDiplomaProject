@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,10 +25,9 @@ public class DifficultySettings : MonoBehaviour
     protected static float EnemySpeed = 1;
 
 
-    public float recordTime = 10f;
+    public float recordTime = 5f;
     public float timer = 0f;
     public float damageTaken = 0;
-
 
     // Use this for initialization
     void Start()
@@ -59,7 +59,7 @@ public class DifficultySettings : MonoBehaviour
                 EnemyRange = 10f;
                 break;
             case 2:
-                Debug.Log("diffuclty 2");
+                Debug.Log("diffuclty 2") ;
                 EnemySpeed = 1.5f;
                 EnemyRange = 15f;
                 break;

@@ -12,6 +12,7 @@ public class EnemyHealth : DifficultySettings
     
     private float enemyPrevHealth = EnemyStartHealth;
     public static event Action<float> OnEnemyDamageTaken;
+    public static event Action<bool> OnEnemyEngaged;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class EnemyHealth : DifficultySettings
         CheckDamage();
         if (healthAmount <= 0)
         {
+            OnEnemyEngaged.Invoke(false);
             Destroy(gameObject);
 			ScoreCounter.instance.increaseFrag(1);
         }
