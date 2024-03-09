@@ -14,7 +14,7 @@ public class PlayerMovement : DifficultySettings
     private float currentAngle;
 
 
-    public static event Action<int> OnRotationStatistic;
+    public static event Action<int, int> OnRotationStatistic;
     private bool isEnemyEngaged = false;
     private int activeEnemies = 0;
     private int killedEnemies = 0;
@@ -48,6 +48,7 @@ public class PlayerMovement : DifficultySettings
         if (activeEnemies == 0 && isEnemyEngaged)
         {
             Debug.Log("Бой окончен поворотов за бой: " + rotationCount + "Врагов убито(или ушли) за бой" + killedEnemies);
+            OnRotationStatistic.Invoke(rotationCount, killedEnemies);
             isEnemyEngaged = false;
             rotationCount = 0;
             killedEnemies = 0;

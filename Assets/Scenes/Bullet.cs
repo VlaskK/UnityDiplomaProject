@@ -24,14 +24,12 @@ public class Bullet : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Enemy1") || col.gameObject.CompareTag("Enemy2"))
         {
-            Debug.Log("enemy hit");
             col.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
             Destroy(gameObject);
         }
 
         if (col.gameObject.CompareTag("Wall"))
         {
-            Debug.Log("Wall hit");
             Destroy(gameObject);
         }
     }

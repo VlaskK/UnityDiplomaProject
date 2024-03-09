@@ -11,7 +11,7 @@ public class DifficultySettings : MonoBehaviour
     //GameScore Variables
     protected static int[] baseScoreValue = { 5, 7, 10, 15, 20, 25, 30, 37, 45, 55, 0, 5 }; //score value for hitting enemy once
 
-    protected static int coinsWinCondition = 1;
+    protected static int coinsWinCondition = 3;
     protected static int fragsWinCondition = 10;
     
     //Player Variables
@@ -20,7 +20,7 @@ public class DifficultySettings : MonoBehaviour
 
     //Enemy Variables
     protected static int EnemyAttackDamage = 2;
-    protected static int EnemyStartHealth = 10;
+    protected static float EnemyStartHealth = 10;
     protected static float EnemyRange = 10f;
     protected static float EnemySpeed = 1;
 
@@ -38,16 +38,7 @@ public class DifficultySettings : MonoBehaviour
     void Update()
     {
     }
-
-    public static void ChangeEnemyStats(float difficultyMultiplier)
-    {
-        //TODO make a correct multiplier 
-        Debug.Log("Increase enemy stats by" + difficultyMultiplier);
-        EnemyAttackDamage = Mathf.RoundToInt(EnemyAttackDamage * difficultyMultiplier);
-        EnemyStartHealth = Mathf.RoundToInt(EnemyStartHealth * difficultyMultiplier);
-        EnemySpeed *= difficultyMultiplier;
-        EnemyRange *= difficultyMultiplier;
-    }
+    
 
     public static void ChangeEnemyDifficulty(int level)
     {
@@ -71,6 +62,15 @@ public class DifficultySettings : MonoBehaviour
         }
     }
 
+    public static void changeEnemyStats(float speed, float health)
+    {
+        EnemySpeed *= 1 + speed;
+        EnemyStartHealth *= 1 + health;
+        
+        Debug.Log("Enemy speed: " + EnemySpeed);
+        Debug.Log("Enemy health: " + EnemyStartHealth);
+    }
+
     // Reset Difficulty to default, you can call this when game resets or player respawns
     public static void ResetEnemyStats()
     {
@@ -79,9 +79,5 @@ public class DifficultySettings : MonoBehaviour
         EnemyRange = 10f;
     }
     
-    public void EndLevel()
-    {
-        
-    }
     
 }

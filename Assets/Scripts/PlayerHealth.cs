@@ -53,7 +53,7 @@ public class PlayerHealth : DifficultySettings
         if (timer > recordTime)
         {
             damageTaken = playerPrevHealth - healthAmount;
-            Debug.Log("damage statistics: " + damageTaken + "damage taked during " + recordTime);
+            // Debug.Log("damage statistics: " + damageTaken + "damage taked during " + recordTime);
 
 			if (damageTaken < 40) 
 			{

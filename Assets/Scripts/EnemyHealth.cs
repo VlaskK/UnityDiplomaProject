@@ -47,7 +47,7 @@ public class EnemyHealth : DifficultySettings
         if (timer > recordTime)
         {
             damageTaken = enemyPrevHealth - healthAmount;
-            Debug.Log("damage statistics: " + damageTaken + "damage taked during " + recordTime);
+            // Debug.Log("damage statistics: " + damageTaken + "damage taked during " + recordTime);
 
             if (damageTaken < 40) 
             {

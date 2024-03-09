@@ -52,7 +52,10 @@ public class ScoreCounter : DifficultySettings
         {
             currentCoins = 0;
             coinText.text = "COINS: " + currentCoins.ToString();
-            OnEndLevel.Invoke(time, coinsWinCondition, fragPoints);
+            var fragValue = fragPoints;
+            fragPoints = 0;
+            fragText.text = "FRAGS: " + fragPoints.ToString();
+            OnEndLevel.Invoke(time, coinsWinCondition, fragValue);
             stopTimer();
             start = true;
         }
@@ -68,7 +71,10 @@ public class ScoreCounter : DifficultySettings
         {
             fragPoints = 0;
             fragText.text = "FRAGS: " + fragPoints.ToString();
-            OnEndLevel.Invoke(time, currentCoins, fragsWinCondition);
+            var coinsValue = currentCoins;
+            currentCoins = 0;
+            coinText.text = "COINS: " + currentCoins.ToString();
+            OnEndLevel.Invoke(time, coinsValue, fragsWinCondition);
             stopTimer();
             start = true;
         }

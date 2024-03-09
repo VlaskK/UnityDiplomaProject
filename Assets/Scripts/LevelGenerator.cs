@@ -136,17 +136,32 @@ public class LevelGenerator : DifficultySettings
 
     void HandleGenerateNextLvl(float scoreTime, int coinCount, int fragCount)
     {
+        float coinMultiplier = 1.5f;
+        float enemyMultiplier = 1.5f;
+        
+        float coinDecrease = 0.75f;
+        float enemyDecrease = 0.75f;
+
+        float coinAmount = coinsWinCondition * 2;
+        float enemyAmount = fragsWinCondition * 3;
+         
         if (coinCount == coinsWinCondition)
         {
-            
+            coinAmount = coinAmount * coinDecrease > coinsWinCondition ? coinAmount * coinDecrease : coinsWinCondition;
+            enemyAmount *= enemyMultiplier;
         }
 
         if (fragCount == fragsWinCondition)
         {
-            
+            coinAmount *= coinMultiplier;
+            enemyAmount = enemyAmount * enemyDecrease > fragsWinCondition ? enemyAmount * enemyDecrease : fragsWinCondition;
         }
         
-        MapGenerator.GenerateMap(10, 3, 3, "Assets/Scenes/level_2.txt");
+        Debug.Log("level complete time: " + scoreTime);
+        Debug.Log("Enemies in next level: " + enemyAmount);
+        Debug.Log("Coins in next level: " + coinAmount);
+        
+        MapGenerator.GenerateMap((int)coinAmount, (int)enemyAmount, 3, "Assets/Scenes/level_2.txt");
         mapLines = File.ReadAllLines("Assets/Scenes/level_2.txt");
         ClearLevel();
         GenerateLevel();

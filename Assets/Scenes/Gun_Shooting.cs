@@ -6,7 +6,7 @@ public class Gun_Shooting : MonoBehaviour
     public Transform FirePoint;
     public GameObject bulletPrefab;
     public bool Active = false;
-    public int numBullet = 30;
+    public int numBullet = 1000;
     public float bulletForce = 20f;
     
     private WeaponHold link;

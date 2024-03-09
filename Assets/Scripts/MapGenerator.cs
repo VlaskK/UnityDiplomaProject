@@ -112,7 +112,7 @@ class MapGenerator
             } while (map[y, x] != '.' || (avoidLetter.HasValue && IsInProximity(map, x, y, avoidLetter.Value)));
 
             map[y, x] = letter;
-        }
+        } //TODO ландшафт карт подумать 
     }
 
     private static bool IsInProximity(char[,] map, int x, int y, char letter, int radius = 7)

@@ -66,20 +66,52 @@ public class EnemyFollowShoot : DifficultySettings
     }
 
 
-    private void HandlePlayerRotation(int rotationCount)
+    private void HandlePlayerRotation(int rotationCount, int enemies)
     {
-        if (rotationCount > 200)
+        var littleRotation = rotationCount < 15; // увеличиваем хп мобов
+        var muchRotation = rotationCount > 50; // увеличиваем скорость врагов 
+
+        var littleEnemies = enemies < 3; // уменьшаем статы
+        var muchEnemies = enemies > 5; // увеличиваем статы
+
+        float healthMultiplier = 1;
+        float speedMultiplier = 1;
+
+        float increaseMultiplier = 2;
+        float decreaseMultiplier = 0.5f;
+
+        float maxHealthValue = 100;
+        float maxSpeedValue = 2;
+        float minHealthValue = 10;
+        float minSpeedValue = 1;
+
+        if (littleRotation)
         {
-            ChangeEnemyDifficulty(3);
-            return;
-        } else if (rotationCount > 150)
+            healthMultiplier = healthMultiplier > maxHealthValue ? 0 : healthMultiplier * increaseMultiplier;
+            speedMultiplier = littleEnemies && speedMultiplier > minSpeedValue ? speedMultiplier * decreaseMultiplier : 0;
+        }
+
+        if (muchRotation)
         {
-            ChangeEnemyDifficulty(2);
-            return;
+            speedMultiplier = speedMultiplier > maxSpeedValue ? 0 : speedMultiplier * increaseMultiplier;
+            healthMultiplier = littleEnemies && healthMultiplier > minHealthValue ? healthMultiplier * decreaseMultiplier : 0;
         }
         
-        ChangeEnemyDifficulty(1);
+        // if (littleEnemies)
+        // {
+        //     speedMultiplier = speedMultiplier > minSpeedValue ? speedMultiplier * decreaseMultiplier : 0;
+        //     healthMultiplier = healthMultiplier > minHealthValue ? healthMultiplier * decreaseMultiplier : 0;
+        // }
+        //
+        // if (muchEnemies)
+        // {
+        //     healthMultiplier = healthMultiplier > maxHealthValue ? 0 : healthMultiplier * increaseMultiplier;
+        //     speedMultiplier = speedMultiplier > maxSpeedValue ? 0 : speedMultiplier * increaseMultiplier;
+        // } 
+        //TODO побольше характеристик
 
+
+        changeEnemyStats(speedMultiplier / 100, healthMultiplier / 100);
     }
 
     private void attackPlayer()
