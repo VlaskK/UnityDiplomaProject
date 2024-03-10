@@ -11,6 +11,10 @@ public class PlayerHealth : DifficultySettings
     public float healthAmount = PlayerStartingHealth;
     private float playerPrevHealth = PlayerStartingHealth;
 
+    private bool isEnemyEngaged = false;
+    private int activeEnemies = 0;
+    private int killedEnemies = 0;
+    private float healthBeforeBattle = PlayerStartingHealth;
 
     public static event Action<float> OnPlayerDamageTaken;
     
@@ -23,10 +27,43 @@ public class PlayerHealth : DifficultySettings
     // Update is called once per frame
     void Update()
     {
-        CheckHealth();
         if (healthAmount <= 0)
         {
             // death
+        }
+        
+        if (activeEnemies == 0 && isEnemyEngaged)
+        {
+            Debug.Log("Здоровье потрачено за бой: " + (healthBeforeBattle - healthAmount));
+            OnPlayerDamageTaken.Invoke(healthBeforeBattle - healthAmount);
+            isEnemyEngaged = false;
+        }
+    }
+    
+    private void OnEnable()
+    {
+        EnemyFollowShoot.OnEnemyEngaged += HandleEnemyEngaged;
+        EnemyHealth.OnEnemyEngaged += HandleEnemyEngaged;
+    }
+
+    private void OnDisable()
+    {
+        EnemyFollowShoot.OnEnemyEngaged -= HandleEnemyEngaged;
+        EnemyHealth.OnEnemyEngaged -= HandleEnemyEngaged;
+    }
+
+    private void HandleEnemyEngaged(bool enemyEngaged)
+    {
+        if (enemyEngaged)
+        {
+            isEnemyEngaged = true;
+            activeEnemies++;
+            healthBeforeBattle = healthAmount;
+        }
+        else
+        {
+            activeEnemies--;
+            killedEnemies++;
         }
     }
 
@@ -44,26 +81,5 @@ public class PlayerHealth : DifficultySettings
         healthAmount = Mathf.Clamp(healingAmount, 0, 100);
         
         HealthBar.fillAmount = healthAmount / 100f;
-    }
-
-    public void CheckHealth()
-    {
-        timer += Time.deltaTime;
-        
-        if (timer > recordTime)
-        {
-            damageTaken = playerPrevHealth - healthAmount;
-            // Debug.Log("damage statistics: " + damageTaken + "damage taked during " + recordTime);
-
-			if (damageTaken < 40) 
-			{
-                OnPlayerDamageTaken?.Invoke(damageTaken);
-			}
-
-			timer = 0;
-			damageTaken = 0;
-			playerPrevHealth = healthAmount;
-        }
-        
     }
 }

@@ -143,7 +143,7 @@ public class LevelGenerator : DifficultySettings
         float enemyDecrease = 0.75f;
 
         float coinAmount = coinsWinCondition * 2;
-        float enemyAmount = fragsWinCondition * 3;
+        float enemyAmount = fragsWinCondition * 1.2f;
          
         if (coinCount == coinsWinCondition)
         {

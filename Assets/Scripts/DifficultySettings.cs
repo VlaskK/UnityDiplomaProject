@@ -12,7 +12,7 @@ public class DifficultySettings : MonoBehaviour
     protected static int[] baseScoreValue = { 5, 7, 10, 15, 20, 25, 30, 37, 45, 55, 0, 5 }; //score value for hitting enemy once
 
     protected static int coinsWinCondition = 3;
-    protected static int fragsWinCondition = 10;
+    protected static int fragsWinCondition = 5;
     
     //Player Variables
     protected static float PlayerMoveSpeed = 8;
@@ -28,6 +28,13 @@ public class DifficultySettings : MonoBehaviour
     public float recordTime = 5f;
     public float timer = 0f;
     public float damageTaken = 0;
+    
+    // Tanku Active PlayStyles
+    public float maxHealthValue = 100;
+    public float maxSpeedValue = 2;
+    public float minHealthValue = 10;
+    public float minSpeedValue = 1;
+    public int multiplier = 2;
 
     // Use this for initialization
     void Start()
@@ -37,29 +44,6 @@ public class DifficultySettings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    }
-    
-
-    public static void ChangeEnemyDifficulty(int level)
-    {
-        switch (level)
-        {
-            case 1:
-                Debug.Log("diffuclty 1");
-                EnemySpeed = 1;
-                EnemyRange = 10f;
-                break;
-            case 2:
-                Debug.Log("diffuclty 2") ;
-                EnemySpeed = 1.5f;
-                EnemyRange = 15f;
-                break;
-            case 3:
-                Debug.Log("diffuclty 3");
-                EnemySpeed = 2;
-                EnemyRange = 20f;
-                break;
-        }
     }
 
     public static void changeEnemyStats(float speed, float health)

@@ -59,10 +59,12 @@ public class EnemyFollowShoot : DifficultySettings
 
 	private void OnEnable() {
         PlayerMovement.OnRotationStatistic += HandlePlayerRotation;
+        PlayerHealth.OnPlayerDamageTaken += HandleDamageStatistics;
     }
 
     private void OnDisable() {
         PlayerMovement.OnRotationStatistic -= HandlePlayerRotation;
+        PlayerHealth.OnPlayerDamageTaken -= HandleDamageStatistics;
     }
 
 
@@ -70,48 +72,42 @@ public class EnemyFollowShoot : DifficultySettings
     {
         var littleRotation = rotationCount < 15; // увеличиваем хп мобов
         var muchRotation = rotationCount > 50; // увеличиваем скорость врагов 
-
-        var littleEnemies = enemies < 3; // уменьшаем статы
+        
         var muchEnemies = enemies > 5; // увеличиваем статы
 
         float healthMultiplier = 1;
         float speedMultiplier = 1;
 
-        float increaseMultiplier = 2;
-        float decreaseMultiplier = 0.5f;
-
-        float maxHealthValue = 100;
-        float maxSpeedValue = 2;
-        float minHealthValue = 10;
-        float minSpeedValue = 1;
-
-        if (littleRotation)
+        if (littleRotation) // Tanky Playstyle
         {
-            healthMultiplier = healthMultiplier > maxHealthValue ? 0 : healthMultiplier * increaseMultiplier;
-            speedMultiplier = littleEnemies && speedMultiplier > minSpeedValue ? speedMultiplier * decreaseMultiplier : 0;
+            healthMultiplier = healthMultiplier > maxHealthValue ? 0 : healthMultiplier * multiplier;
+            speedMultiplier = muchEnemies && speedMultiplier > minSpeedValue ? speedMultiplier / multiplier : 0;
         }
 
-        if (muchRotation)
+        if (muchRotation) // Active playstyle
         {
-            speedMultiplier = speedMultiplier > maxSpeedValue ? 0 : speedMultiplier * increaseMultiplier;
-            healthMultiplier = littleEnemies && healthMultiplier > minHealthValue ? healthMultiplier * decreaseMultiplier : 0;
+            speedMultiplier = speedMultiplier > maxSpeedValue ? 0 : speedMultiplier * multiplier;
+            healthMultiplier = muchEnemies && healthMultiplier > minHealthValue ? healthMultiplier/ multiplier : 0;
         }
-        
-        // if (littleEnemies)
-        // {
-        //     speedMultiplier = speedMultiplier > minSpeedValue ? speedMultiplier * decreaseMultiplier : 0;
-        //     healthMultiplier = healthMultiplier > minHealthValue ? healthMultiplier * decreaseMultiplier : 0;
-        // }
-        //
-        // if (muchEnemies)
-        // {
-        //     healthMultiplier = healthMultiplier > maxHealthValue ? 0 : healthMultiplier * increaseMultiplier;
-        //     speedMultiplier = speedMultiplier > maxSpeedValue ? 0 : speedMultiplier * increaseMultiplier;
-        // } 
         //TODO побольше характеристик
 
 
         changeEnemyStats(speedMultiplier / 100, healthMultiplier / 100);
+    }
+
+    private void HandleDamageStatistics(float damageTaken)
+    {
+        // easy
+        if (damageTaken > PlayerStartingHealth * 0.1)
+        {
+            multiplier *= 2;
+        }
+        
+        // hard
+        if (damageTaken > PlayerStartingHealth * 0.5)
+        {
+            multiplier /= 2;
+        }
     }
 
     private void attackPlayer()
