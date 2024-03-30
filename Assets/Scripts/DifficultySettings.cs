@@ -11,7 +11,7 @@ public class DifficultySettings : MonoBehaviour
     //GameScore Variables
     protected static int[] baseScoreValue = { 5, 7, 10, 15, 20, 25, 30, 37, 45, 55, 0, 5 }; //score value for hitting enemy once
 
-    protected static int coinsWinCondition = 3;
+    protected static int coinsWinCondition = 2;
     protected static int fragsWinCondition = 5;
     
     //Player Variables

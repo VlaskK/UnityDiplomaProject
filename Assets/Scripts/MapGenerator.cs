@@ -26,7 +26,9 @@ class MapGenerator
         PlaceRandomLetters(levelMap, 'G', gunAmount, null);
         PlaceRandomLetters(levelMap, 'S', 1, 'M');
 
+
         GenerateFile(levelMap, height, width, filePath);
+        // GenerateFile(GenerateMazeByEller(width, height), height, width, filePath);
     }
 
     private static void MakeWalls(char[,] levelMap, int height, int width)
@@ -42,7 +44,7 @@ class MapGenerator
         int currentX = 1;
         while (currentX < width - 1)
         {
-            int passageWidth = rand.Next(4, 11); // случайная ширина прохода от 4 до 10
+            int passageWidth = rand.Next(5, 11); // случайная ширина прохода от 4 до 10
             for (int y = 0; y < height; y++)
             {
                 for (int x = currentX; x < width && x < currentX + passageWidth; x++)
@@ -53,7 +55,7 @@ class MapGenerator
                     }
                 }
             }
-            
+
             currentX += passageWidth + 1;
         }
     }
@@ -119,7 +121,7 @@ class MapGenerator
     {
         int width = map.GetLength(1);
         int height = map.GetLength(0);
-        
+
         int startX = Math.Max(1, x - radius);
         int endX = Math.Min(width - 2, x + radius);
         int startY = Math.Max(1, y - radius);
@@ -139,7 +141,51 @@ class MapGenerator
 
         return false;
     }
-    
-    
 
+
+    public static char[,] GenerateMazeByEller(int width, int height)
+    {
+        //char[,] maze = new char[height, width];
+
+        char[,] maze = new char[2 * height + 1, 2 * width + 1];
+
+        // Заполнение лабиринта стенами
+        for (int i = 0; i < maze.GetLength(0); i++)
+        {
+            for (int j = 0; j < maze.GetLength(1); j++)
+            {
+                if (i % 2 == 0 || j % 2 == 0)
+                {
+                    maze[i, j] = '#';
+                }
+                else
+                {
+                    maze[i, j] = '.';
+                }
+            }
+        }
+
+        Random random = new Random();
+        for (int i = 1; i < height; i++)
+        {
+            for (int j = 1; j < width; j++)
+            {
+                int passageWidth = random.Next(5, 11); // Ширина прохода от 5 до 10 точек
+
+                if (i % 2 == 0 && j % passageWidth == 0)
+                {
+                    for (int k = 1; k < passageWidth; k++)
+                    {
+                        maze[2 * i, 2 * j - k] = '.'; // Создать проход шириной passageWidth
+                    }
+                }
+                else if (i % 2 != 0 && j < width - 1 && random.Next(2) == 0)
+                {
+                    maze[2 * i - 1, 2 * j] = '.'; // Удалить стенку
+                }
+            }
+        }
+
+        return maze;
+    }
 }

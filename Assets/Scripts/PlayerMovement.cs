@@ -14,13 +14,15 @@ public class PlayerMovement : DifficultySettings
     private float currentAngle;
 
 
-    public static event Action<int, int> OnRotationStatistic;
+    public static event Action<int, int, float> OnRotationStatistic;
     private bool isEnemyEngaged = false;
     private int activeEnemies = 0;
     private int killedEnemies = 0;
 
     private float prevRotation;
     private int rotationCount = 0;
+    
+    public float fightTime = 0f;
 
 
     private void Start()
@@ -48,10 +50,18 @@ public class PlayerMovement : DifficultySettings
         if (activeEnemies == 0 && isEnemyEngaged)
         {
             Debug.Log("Бой окончен поворотов за бой: " + rotationCount + "Врагов убито(или ушли) за бой" + killedEnemies);
-            OnRotationStatistic.Invoke(rotationCount, killedEnemies);
+            OnRotationStatistic.Invoke(rotationCount, killedEnemies, fightTime);
             isEnemyEngaged = false;
             rotationCount = 0;
             killedEnemies = 0;
+            
+            Debug.Log("Время боя: " + fightTime);
+            fightTime = 0;
+        }
+
+        if (isEnemyEngaged)
+        {
+            fightTime += Time.deltaTime;
         }
     }
 

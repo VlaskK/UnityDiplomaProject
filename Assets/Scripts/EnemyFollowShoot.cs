@@ -21,6 +21,8 @@ public class EnemyFollowShoot : DifficultySettings
     
     public static event Action<bool> OnEnemyEngaged;
     private bool eventTriggered = false;
+
+    private float playerDamageDuringFight = 0;
     
 
     // Start is called before the first frame update
@@ -68,15 +70,29 @@ public class EnemyFollowShoot : DifficultySettings
     }
 
 
-    private void HandlePlayerRotation(int rotationCount, int enemies)
+    private void HandlePlayerRotation(int rotationCount, int enemies, float fightTime)
     {
         var littleRotation = rotationCount < 15; // увеличиваем хп мобов
         var muchRotation = rotationCount > 50; // увеличиваем скорость врагов 
+
+        var hardCondition = playerDamageDuringFight > PlayerStartingHealth * 0.5;
+        var easyCondition = playerDamageDuringFight < PlayerStartingHealth * 0.2;
         
         var muchEnemies = enemies > 5; // увеличиваем статы
 
         float healthMultiplier = 1;
         float speedMultiplier = 1;
+
+        if (hardCondition)
+        {
+            multiplier = fightTime < 2 ? multiplier / 4 : multiplier / 2;
+        }
+
+        if (easyCondition)
+        {
+            multiplier /= 2;
+            multiplier = (fightTime < 2) && muchEnemies ? multiplier * 4 : multiplier * 2;
+        }
 
         if (littleRotation) // Tanky Playstyle
         {
@@ -89,7 +105,6 @@ public class EnemyFollowShoot : DifficultySettings
             speedMultiplier = speedMultiplier > maxSpeedValue ? 0 : speedMultiplier * multiplier;
             healthMultiplier = muchEnemies && healthMultiplier > minHealthValue ? healthMultiplier/ multiplier : 0;
         }
-        //TODO побольше характеристик
 
 
         changeEnemyStats(speedMultiplier / 100, healthMultiplier / 100);
@@ -97,17 +112,7 @@ public class EnemyFollowShoot : DifficultySettings
 
     private void HandleDamageStatistics(float damageTaken)
     {
-        // easy
-        if (damageTaken > PlayerStartingHealth * 0.1)
-        {
-            multiplier *= 2;
-        }
-        
-        // hard
-        if (damageTaken > PlayerStartingHealth * 0.5)
-        {
-            multiplier /= 2;
-        }
+        playerDamageDuringFight = damageTaken;
     }
 
     private void attackPlayer()

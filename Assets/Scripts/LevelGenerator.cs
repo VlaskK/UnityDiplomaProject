@@ -22,6 +22,9 @@ public class LevelGenerator : DifficultySettings
     private string[] mapLines;
     
     private List<GameObject> generatedObjects;
+    
+    
+    public static event Action OnNewLevel;
 
 
     public enum TileType
@@ -136,6 +139,7 @@ public class LevelGenerator : DifficultySettings
 
     void HandleGenerateNextLvl(float scoreTime, int coinCount, int fragCount)
     {
+        OnNewLevel.Invoke();
         float coinMultiplier = 1.5f;
         float enemyMultiplier = 1.5f;
         
