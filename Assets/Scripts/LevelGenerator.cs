@@ -45,6 +45,9 @@ public class LevelGenerator : DifficultySettings
         Debug.Log(mapLines);
         generatedObjects = new List<GameObject>();
         GenerateLevel();
+        
+        levelFileName = Path.Combine(Application.persistentDataPath, "level_1.txt");
+        Debug.Log("Full path to file: " + levelFileName);
     }
     
     
