@@ -11,7 +11,7 @@ public class WeaponHold : MonoBehaviour
     public Text nBull;
 
     private Animator anime;
-    
+
     private readonly float dist = 3;
 
     private RaycastHit2D hit;
@@ -53,8 +53,8 @@ public class WeaponHold : MonoBehaviour
             hit.collider.gameObject.transform.rotation = transform.rotation;
         }
     }
-    
-    
+
+
     private void OnEnable()
     {
         LevelGenerator.OnNewLevel += dropGun;
@@ -84,16 +84,19 @@ public class WeaponHold : MonoBehaviour
 
     private void dropGun()
     {
-        hold = false;
-        Gun_Shooting GunShoot = hit.collider.gameObject.GetComponent<Gun_Shooting>();
-        GunShoot.Active = false;
-        hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
-        gameObject.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).transform.GetChild(0)
-            .gameObject.SetActive(true);
-        nBull.text = "Нож";
-        if (hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
-            hit.collider.gameObject.transform.position = new Vector3(transform.localScale.x,
-                transform.localScale.y, 0);
+        if (hold)
+        {
+            hold = false;
+            Gun_Shooting GunShoot = hit.collider.gameObject.GetComponent<Gun_Shooting>();
+            GunShoot.Active = false;
+            hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            gameObject.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).transform.GetChild(0)
+                .gameObject.SetActive(true);
+            nBull.text = "Нож";
+            if (hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
+                hit.collider.gameObject.transform.position = new Vector3(transform.localScale.x,
+                    transform.localScale.y, 0);
+        }
     }
 
     private void OnDrawGizmos()

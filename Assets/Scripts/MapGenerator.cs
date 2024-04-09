@@ -7,7 +7,7 @@ class MapGenerator
 {
     private static Random rand = new Random();
 
-    public static void GenerateMap(
+    public static char[,] GenerateMap(
         int coinAmount,
         int enemyAmount,
         int gunAmount,
@@ -29,6 +29,8 @@ class MapGenerator
 
         GenerateFile(levelMap, height, width, filePath);
         // GenerateFile(GenerateMazeByEller(width, height), height, width, filePath);
+
+        return levelMap;
     }
 
     private static void MakeWalls(char[,] levelMap, int height, int width)

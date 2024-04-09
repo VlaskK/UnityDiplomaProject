@@ -8,7 +8,7 @@ using Random = System.Random;
 
 public class LevelGenerator : DifficultySettings
 {
-    public string levelFileName = "Assets/Scenes/level_1.txt";
+    public string levelFileName = Path.Combine(Application.dataPath, "Scenes/level_1.txt");//"Assets/Scenes/level_1.txt";
     public GameObject wallPrefab;
     public GameObject floorPrefab;
     public GameObject doorPrefab;
@@ -42,6 +42,7 @@ public class LevelGenerator : DifficultySettings
     {
         player = GameObject.FindGameObjectWithTag("Player");
         mapLines = File.ReadAllLines(levelFileName);
+        Debug.Log(mapLines);
         generatedObjects = new List<GameObject>();
         GenerateLevel();
     }
@@ -165,10 +166,17 @@ public class LevelGenerator : DifficultySettings
         Debug.Log("Enemies in next level: " + enemyAmount);
         Debug.Log("Coins in next level: " + coinAmount);
         
-        MapGenerator.GenerateMap((int)coinAmount, (int)enemyAmount, 3, "Assets/Scenes/level_2.txt");
-        mapLines = File.ReadAllLines("Assets/Scenes/level_2.txt");
+        // MapGenerator.GenerateMap((int)coinAmount, (int)enemyAmount, 3, "Assets/Scenes/level_2.txt");
+        // mapLines = File.ReadAllLines("Assets/Scenes/level_2.txt");
         ClearLevel();
+        GenerateMapFile((int)coinAmount, (int)enemyAmount, 3);
         GenerateLevel();
+    }
+
+    void GenerateMapFile(int coinAmount, int enemyAmount, int gunAmount)
+    {
+        MapGenerator.GenerateMap(coinAmount, enemyAmount, gunAmount, "Assets/Scenes/level_2.txt");
+        mapLines = File.ReadAllLines("Assets/Scenes/level_2.txt");
     }
 
 }
