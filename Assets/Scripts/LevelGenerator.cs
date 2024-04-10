@@ -8,7 +8,6 @@ using Random = System.Random;
 
 public class LevelGenerator : DifficultySettings
 {
-    public string levelFileName = Path.Combine(Application.dataPath, "Scenes/level_1.txt");//"Assets/Scenes/level_1.txt";
     public GameObject wallPrefab;
     public GameObject floorPrefab;
     public GameObject doorPrefab;
@@ -19,8 +18,7 @@ public class LevelGenerator : DifficultySettings
     public GameObject coinPrefab;
     private GameObject player;
     private Random rnd = new Random();
-    private string[] mapLines;
-    
+
     private List<GameObject> generatedObjects;
     
     
@@ -41,13 +39,8 @@ public class LevelGenerator : DifficultySettings
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        mapLines = File.ReadAllLines(levelFileName);
-        Debug.Log(mapLines);
         generatedObjects = new List<GameObject>();
-        GenerateLevel();
-        
-        levelFileName = Path.Combine(Application.persistentDataPath, "level_1.txt");
-        Debug.Log("Full path to file: " + levelFileName);
+        GenerateLevel(MapGenerator.GenerateMap(coinsWinCondition * 2, fragsWinCondition, 3));
     }
     
     
@@ -59,18 +52,14 @@ public class LevelGenerator : DifficultySettings
         ScoreCounter.OnEndLevel -= HandleGenerateNextLvl;
     }
 
-    void GenerateLevel()
+    void GenerateLevel(char[,] mapArray)
     {
-        Debug.Log(mapLines);
-        for (int y = 0; y < mapLines.Length; y++)
+        for (int y = 0; y < mapArray.GetLength(1); y++)
         {
-            char[] chars = mapLines[y].ToCharArray();
-
-            for (int x = 0; x < chars.Length; x++)
+            for (int x = 0; x < mapArray.GetLength(0); x++)
             {
                 Vector3 tilePosition = new Vector3(x, -y, 0);
-
-                switch (chars[x])
+                switch (mapArray[x, y])
                 {
                     case '#':
                         InstantiateTile(wallPrefab, tilePosition, TileType.Wall);
@@ -168,18 +157,13 @@ public class LevelGenerator : DifficultySettings
         Debug.Log("level complete time: " + scoreTime);
         Debug.Log("Enemies in next level: " + enemyAmount);
         Debug.Log("Coins in next level: " + coinAmount);
-        
-        // MapGenerator.GenerateMap((int)coinAmount, (int)enemyAmount, 3, "Assets/Scenes/level_2.txt");
-        // mapLines = File.ReadAllLines("Assets/Scenes/level_2.txt");
         ClearLevel();
         GenerateMapFile((int)coinAmount, (int)enemyAmount, 3);
-        GenerateLevel();
     }
 
     void GenerateMapFile(int coinAmount, int enemyAmount, int gunAmount)
     {
-        MapGenerator.GenerateMap(coinAmount, enemyAmount, gunAmount, "Assets/Scenes/level_2.txt");
-        mapLines = File.ReadAllLines("Assets/Scenes/level_2.txt");
+        GenerateLevel(MapGenerator.GenerateMap(coinAmount, enemyAmount, gunAmount));
     }
 
 }

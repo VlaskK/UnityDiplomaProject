@@ -11,7 +11,6 @@ class MapGenerator
         int coinAmount,
         int enemyAmount,
         int gunAmount,
-        string filePath,
         int width = 60,
         int height = 28
     )
@@ -25,10 +24,6 @@ class MapGenerator
         PlaceRandomLetters(levelMap, 'M', enemyAmount, null);
         PlaceRandomLetters(levelMap, 'G', gunAmount, null);
         PlaceRandomLetters(levelMap, 'S', 1, 'M');
-
-
-        GenerateFile(levelMap, height, width, filePath);
-        // GenerateFile(GenerateMazeByEller(width, height), height, width, filePath);
 
         return levelMap;
     }
