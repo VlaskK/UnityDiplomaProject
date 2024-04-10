@@ -163,6 +163,9 @@ public class LevelGenerator : DifficultySettings
 
     void GenerateMapFile(int coinAmount, int enemyAmount, int gunAmount)
     {
+        float missingHealth = PlayerStartingHealth - player.GetComponent<PlayerHealth>().healthAmount;
+        player.GetComponent<PlayerHealth>().Heal(missingHealth);
+        
         GenerateLevel(MapGenerator.GenerateMap(coinAmount, enemyAmount, gunAmount));
     }
 

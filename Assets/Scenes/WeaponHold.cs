@@ -23,7 +23,6 @@ public class WeaponHold : MonoBehaviour
     private void Start()
     {
         anime = GetComponent<Animator>();
-        // shoot = GetComponent<Gun_Shooting>();
     }
 
     // Update is called once per frame
