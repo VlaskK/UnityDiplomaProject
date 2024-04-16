@@ -41,6 +41,19 @@ public class EnemyBullet : MonoBehaviour
             Destroy(gameObject);
         }
         
+        // if (col.gameObject.CompareTag("Enemy1"))
+        // {
+        //     col.gameObject.GetComponent<EnemyHealth>().TakeDamage(20);
+        //     Destroy(gameObject);
+        // }
+        //
+        // if (col.gameObject.CompareTag("Enemy2"))
+        // {
+        //     col.gameObject.GetComponent<EnemyHealth>().TakeDamage(20);
+        //     Destroy(gameObject);
+        // }
+        
+        
         if (col.gameObject.CompareTag("Wall"))
         {
             Destroy(gameObject);

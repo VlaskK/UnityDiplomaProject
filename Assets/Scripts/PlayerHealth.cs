@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : DifficultySettings
 {
@@ -29,7 +30,8 @@ public class PlayerHealth : DifficultySettings
     {
         if (healthAmount <= 0)
         {
-            // death
+            SceneManager.LoadScene("Menu");
+            Destroy(gameObject);
         }
         
         if (activeEnemies == 0 && isEnemyEngaged)

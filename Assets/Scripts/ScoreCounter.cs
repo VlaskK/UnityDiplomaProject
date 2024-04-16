@@ -19,6 +19,10 @@ public class ScoreCounter : DifficultySettings
     
     
     public static event Action<float, int, int> OnEndLevel;
+    
+    private string coinsScore => "COINS: " + currentCoins.ToString() + "/" + (coinsWinCondition + 1);
+    private string enemyScore => "FRAGS: " + fragPoints.ToString() + "/" + (fragsWinCondition + 1);
+    
 
     private void Awake()
     {
@@ -29,7 +33,8 @@ public class ScoreCounter : DifficultySettings
     // Start is called before the first frame update
     void Start()
     {
-        coinText.text = "COINS: " + currentCoins.ToString();
+        coinText.text = coinsScore;
+        fragText.text = enemyScore;
         start = true;
     }
 
@@ -45,16 +50,16 @@ public class ScoreCounter : DifficultySettings
     public void increaseCoins(int v)
     {
         currentCoins += v;
-        coinText.text = "COINS: " + currentCoins.ToString();
+        coinText.text = coinsScore;
 
 
         if (currentCoins > coinsWinCondition)
         {
             currentCoins = 0;
-            coinText.text = "COINS: " + currentCoins.ToString();
+            coinText.text = coinsScore;
             var fragValue = fragPoints;
             fragPoints = 0;
-            fragText.text = "FRAGS: " + fragPoints.ToString();
+            fragText.text = enemyScore;
             OnEndLevel.Invoke(time, coinsWinCondition, fragValue);
             stopTimer();
             start = true;
@@ -64,16 +69,16 @@ public class ScoreCounter : DifficultySettings
     public void increaseFrag(int v)
     {
         fragPoints += v;
-        fragText.text = "FRAGS: " + fragPoints.ToString();
+        fragText.text = enemyScore;
 
 
         if (fragPoints > fragsWinCondition)
         {
             fragPoints = 0;
-            fragText.text = "FRAGS: " + fragPoints.ToString();
+            fragText.text = enemyScore;
             var coinsValue = currentCoins;
             currentCoins = 0;
-            coinText.text = "COINS: " + currentCoins.ToString();
+            coinText.text = coinsScore;
             OnEndLevel.Invoke(time, coinsValue, fragsWinCondition);
             stopTimer();
             start = true;
@@ -86,5 +91,4 @@ public class ScoreCounter : DifficultySettings
         start = false;
         time = 0;
     }
-
 }

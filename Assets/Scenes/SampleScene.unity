@@ -258,7 +258,11 @@ MonoBehaviour:
   recordTime: 10
   timer: 0
   damageTaken: 0
-  levelFileName: Assets/Scenes/level_1.txt
+  maxHealthValue: 100
+  maxSpeedValue: 2
+  minHealthValue: 10
+  minSpeedValue: 1
+  multiplier: 2
   wallPrefab: {fileID: 4629750254264579039, guid: 43e4de94b08e9ab4397eec1683ce8ac7, type: 3}
   floorPrefab: {fileID: 4066399992705283558, guid: 297d2dff498f40444a943e9c0ed95d4b, type: 3}
   doorPrefab: {fileID: 5420820006103459287, guid: f011f701351987148aae39a0db786629, type: 3}
@@ -378,10 +382,17 @@ MonoBehaviour:
   recordTime: 10
   timer: 0
   damageTaken: 0
+  maxHealthValue: 100
+  maxSpeedValue: 2
+  minHealthValue: 10
+  minSpeedValue: 1
+  multiplier: 2
   coinText: {fileID: 884349912}
   fragText: {fileID: 1792041300}
   currentCoins: 0
   fragPoints: 0
+  time: 0
+  start: 0
 --- !u!1 &884349910
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +645,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -327, y: 312}
+  m_AnchoredPosition: {x: -327, y: 310}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1792041300
@@ -720,7 +731,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 9.357039, z: 0, w: -17.998981}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
