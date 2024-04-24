@@ -40,7 +40,7 @@ public class LevelGenerator : DifficultySettings
     {
         player = GameObject.FindGameObjectWithTag("Player");
         generatedObjects = new List<GameObject>();
-        GenerateLevel(MapGenerator.GenerateMap(coinsWinCondition * 2, fragsWinCondition, 3));
+        GenerateLevel(MapGenerator.GenerateMap(coinsWinCondition * 2, fragsWinCondition, fragsWinCondition / 2));
     }
     
     
@@ -132,6 +132,8 @@ public class LevelGenerator : DifficultySettings
 
     void HandleGenerateNextLvl(float scoreTime, int coinCount, int fragCount)
     {
+        float missingHealth = PlayerStartingHealth - player.GetComponent<PlayerHealth>().healthAmount;
+        player.GetComponent<PlayerHealth>().Heal(missingHealth);
         OnNewLevel.Invoke();
         float coinMultiplier = 1.5f;
         float enemyMultiplier = 1.5f;
@@ -163,9 +165,6 @@ public class LevelGenerator : DifficultySettings
 
     void GenerateMapFile(int coinAmount, int enemyAmount, int gunAmount)
     {
-        float missingHealth = PlayerStartingHealth - player.GetComponent<PlayerHealth>().healthAmount;
-        player.GetComponent<PlayerHealth>().Heal(missingHealth);
-        
         GenerateLevel(MapGenerator.GenerateMap(coinAmount, enemyAmount, gunAmount));
     }
 

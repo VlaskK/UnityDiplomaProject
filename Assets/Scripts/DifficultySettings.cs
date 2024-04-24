@@ -10,10 +10,10 @@ public class DifficultySettings : MonoBehaviour
 {
     //GameScore Variables
     protected static int[] baseScoreValue = { 5, 7, 10, 15, 20, 25, 30, 37, 45, 55, 0, 5 }; //score value for hitting enemy once
-
-    protected static int coinsWinCondition = 2;
-    protected static int fragsWinCondition = 5;
     
+    public static int coinsWinCondition = 5;
+    public static int fragsWinCondition = 5;
+
     //Player Variables
     protected static float PlayerMoveSpeed = 8;
     protected static float PlayerStartingHealth = 100f;
@@ -35,16 +35,6 @@ public class DifficultySettings : MonoBehaviour
     public float minHealthValue = 10;
     public float minSpeedValue = 1;
     public int multiplier = 2;
-
-    // Use this for initialization
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     public static void changeEnemyStats(float speed, float health)
     {
