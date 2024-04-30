@@ -22,8 +22,6 @@ public class Gun_Shooting : MonoBehaviour
         // Debug.Log($"Active.Shoot Gun1 = {Active} -- GameObj = {gameObject.name}");
         if (Input.GetButtonDown("Fire1") && Active && numBullet > 0)
         {
-            Debug.Log("active: " + Active);
-            Debug.Log("bullets: " + numBullet);
             Shoot();
             numBullet--;
         }

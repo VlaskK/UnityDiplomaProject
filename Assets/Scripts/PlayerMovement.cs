@@ -50,13 +50,17 @@ public class PlayerMovement : DifficultySettings
         if (activeEnemies == 0 && isEnemyEngaged)
         {
             Debug.Log("Бой окончен поворотов за бой: " + rotationCount + "Врагов убито(или ушли) за бой" + killedEnemies);
-            OnRotationStatistic.Invoke(rotationCount, killedEnemies, fightTime);
-            isEnemyEngaged = false;
-            rotationCount = 0;
-            killedEnemies = 0;
-            
-            Debug.Log("Время боя: " + fightTime);
-            fightTime = 0;
+            if (currentCoins != coinsWinCondition && fragPoints != fragsWinCondition)
+            {
+                OnRotationStatistic.Invoke(rotationCount, killedEnemies, fightTime);
+                isEnemyEngaged = false;
+                rotationCount = 0;
+                killedEnemies = 0;
+
+                Debug.Log("Время боя: " + fightTime);
+                fightTime = 0;
+            }
+
         }
 
         if (isEnemyEngaged)

@@ -36,9 +36,12 @@ public class PlayerHealth : DifficultySettings
         
         if (activeEnemies == 0 && isEnemyEngaged)
         {
-            Debug.Log("Здоровье потрачено за бой: " + (healthBeforeBattle - healthAmount));
-            OnPlayerDamageTaken.Invoke(healthBeforeBattle - healthAmount);
-            isEnemyEngaged = false;
+            if (currentCoins != coinsWinCondition && fragPoints != fragsWinCondition)
+            {
+                OnPlayerDamageTaken.Invoke(healthBeforeBattle - healthAmount);
+                isEnemyEngaged = false;
+            }
+
         }
     }
     
@@ -82,6 +85,12 @@ public class PlayerHealth : DifficultySettings
         healthAmount += healingAmount;
         healthAmount = Mathf.Clamp(healingAmount, 0, 100);
         
+        HealthBar.fillAmount = healthAmount / 100f;
+    }
+
+    public void resetHealth()
+    {
+        healthAmount = PlayerStartingHealth;
         HealthBar.fillAmount = healthAmount / 100f;
     }
 }

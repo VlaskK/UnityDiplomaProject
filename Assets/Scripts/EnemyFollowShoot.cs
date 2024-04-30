@@ -72,38 +72,38 @@ public class EnemyFollowShoot : DifficultySettings
 
     private void HandlePlayerRotation(int rotationCount, int enemies, float fightTime)
     {
-        var littleRotation = rotationCount < 15; // увеличиваем хп мобов
-        var muchRotation = rotationCount > 50; // увеличиваем скорость врагов 
+        var littleRotation = rotationCount < 15; // увеличиваем противодействия стратегии танк
+        var muchRotation = rotationCount > 50; // увеличиваем противодействия стратегии мобильность
 
         var hardCondition = playerDamageDuringFight > PlayerStartingHealth * 0.5;
         var easyCondition = playerDamageDuringFight < PlayerStartingHealth * 0.2;
         
         var muchEnemies = enemies > 5; // увеличиваем статы
 
-        float healthMultiplier = 1;
-        float speedMultiplier = 1;
+        float healthMultiplier = 10;
+        float speedMultiplier = 2;
 
         if (hardCondition)
         {
-            multiplier = fightTime < 2 ? multiplier / 4 : multiplier / 2;
+            multiplier = fightTime < 10 ? multiplier / 4 : multiplier / 2;
         }
 
         if (easyCondition)
         {
             multiplier /= 2;
-            multiplier = (fightTime < 2) && muchEnemies ? multiplier * 4 : multiplier * 2;
+            multiplier = (fightTime < 10) && muchEnemies ? multiplier * 4 : multiplier * 2;
         }
 
         if (littleRotation) // Tanky Playstyle
         {
-            healthMultiplier = healthMultiplier > maxHealthValue ? 0 : healthMultiplier * multiplier;
-            speedMultiplier = muchEnemies && speedMultiplier > minSpeedValue ? speedMultiplier / multiplier : 0;
+            healthMultiplier = healthMultiplier > maxHealthMultiplier ? 0 : healthMultiplier * multiplier;
+            speedMultiplier = muchEnemies && speedMultiplier > minSpeedMultiplier ? speedMultiplier / multiplier : 0;
         }
 
         if (muchRotation) // Active playstyle
         {
-            speedMultiplier = speedMultiplier > maxSpeedValue ? 0 : speedMultiplier * multiplier;
-            healthMultiplier = muchEnemies && healthMultiplier > minHealthValue ? healthMultiplier/ multiplier : 0;
+            speedMultiplier = speedMultiplier > maxSpeedMultiplier ? 0 : speedMultiplier * multiplier;
+            healthMultiplier = muchEnemies && healthMultiplier > minHealthMultiplier ? healthMultiplier/ multiplier : 0;
         }
 
 

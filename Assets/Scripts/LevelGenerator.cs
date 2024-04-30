@@ -132,8 +132,7 @@ public class LevelGenerator : DifficultySettings
 
     void HandleGenerateNextLvl(float scoreTime, int coinCount, int fragCount)
     {
-        float missingHealth = PlayerStartingHealth - player.GetComponent<PlayerHealth>().healthAmount;
-        player.GetComponent<PlayerHealth>().Heal(missingHealth);
+        player.GetComponent<PlayerHealth>().resetHealth();
         OnNewLevel.Invoke();
         float coinMultiplier = 1.5f;
         float enemyMultiplier = 1.5f;

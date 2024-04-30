@@ -11,17 +11,14 @@ public class ScoreCounter : DifficultySettings
     public TMP_Text coinText;
     public TMP_Text fragText;
 
-    public int currentCoins = 0;
-    public int fragPoints = 0;
-    
     public float time = 0;
     public bool start = false;
     
     
     public static event Action<float, int, int> OnEndLevel;
     
-    private string coinsScore => "COINS: " + currentCoins.ToString() + "/" + (coinsWinCondition + 1);
-    private string enemyScore => "FRAGS: " + fragPoints.ToString() + "/" + (fragsWinCondition + 1);
+    private string coinsScore => "COINS: " + currentCoins.ToString() + "/" + (coinsWinCondition);
+    private string enemyScore => "FRAGS: " + fragPoints.ToString() + "/" + (fragsWinCondition);
     
 
     private void Awake()
@@ -53,7 +50,7 @@ public class ScoreCounter : DifficultySettings
         coinText.text = coinsScore;
 
 
-        if (currentCoins > coinsWinCondition)
+        if (currentCoins >= coinsWinCondition)
         {
             currentCoins = 0;
             coinText.text = coinsScore;
@@ -72,7 +69,7 @@ public class ScoreCounter : DifficultySettings
         fragText.text = enemyScore;
 
 
-        if (fragPoints > fragsWinCondition)
+        if (fragPoints >= fragsWinCondition)
         {
             fragPoints = 0;
             fragText.text = enemyScore;

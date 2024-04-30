@@ -17,7 +17,6 @@ public class EnemyHealth : DifficultySettings
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -31,11 +30,20 @@ public class EnemyHealth : DifficultySettings
 			ScoreCounter.instance.increaseFrag(1);
         }
     }
+    
+    private void OnEnable()
+    {
+        EnemyFollowShoot.OnEnemyEngaged += HandleIncreaseStartHealth;
+    }
+
+    private void OnDisable()
+    {
+        EnemyFollowShoot.OnEnemyEngaged -= HandleIncreaseStartHealth;
+    }
 
     public void TakeDamage(float damage)
     {
         healthAmount -= damage;
-        
         gameObject.GetComponent<Animator>().SetTrigger("Damage");
     }
     
@@ -47,7 +55,6 @@ public class EnemyHealth : DifficultySettings
         if (timer > recordTime)
         {
             damageTaken = enemyPrevHealth - healthAmount;
-            // Debug.Log("damage statistics: " + damageTaken + "damage taked during " + recordTime);
 
             if (damageTaken < 40) 
             {
@@ -59,5 +66,13 @@ public class EnemyHealth : DifficultySettings
             enemyPrevHealth = healthAmount;
         }
         
+    }
+
+    private void HandleIncreaseStartHealth(bool fight)
+    {
+        if (!fight)
+        {
+            healthAmount = EnemyStartHealth;
+        }
     }
 }
