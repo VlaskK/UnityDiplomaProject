@@ -78,6 +78,8 @@ public class PlayerHealth : DifficultySettings
         HealthBar.fillAmount = healthAmount / 100f;
         
         gameObject.GetComponent<Animator>().SetTrigger("Damage");
+
+        playerDamageTaken += damage;
     }
 
     public void Heal(float healingAmount)

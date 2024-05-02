@@ -28,6 +28,7 @@ public class DifficultySettings : MonoBehaviour
     protected static float EnemyRange = 10f;
     protected static float EnemySpeed = 1;
 
+    public static float playerDamageTaken = 0;
 
     public float recordTime = 5f;
     public float timer = 0f;

@@ -22,7 +22,7 @@ public class LevelGenerator : DifficultySettings
     private List<GameObject> generatedObjects;
     
     
-    public static event Action OnNewLevel;
+    public static event Action dropGunNewLevel;
 
 
     public enum TileType
@@ -133,11 +133,11 @@ public class LevelGenerator : DifficultySettings
     void HandleGenerateNextLvl(float scoreTime, int coinCount, int fragCount)
     {
         player.GetComponent<PlayerHealth>().resetHealth();
-        OnNewLevel.Invoke();
-        float coinMultiplier = 1.5f;
-        float enemyMultiplier = 1.5f;
+        dropGunNewLevel.Invoke();
+        float coinMultiplier = 1.25f;
+        float enemyMultiplier = 3f;
         
-        float coinDecrease = 0.75f;
+        float coinDecrease = 0.45f;
         float enemyDecrease = 0.75f;
 
         float coinAmount = coinsWinCondition * 2;
@@ -145,21 +145,36 @@ public class LevelGenerator : DifficultySettings
          
         if (coinCount == coinsWinCondition)
         {
-            coinAmount = coinAmount * coinDecrease > coinsWinCondition ? coinAmount * coinDecrease : coinsWinCondition;
-            enemyAmount *= enemyMultiplier;
+            enemyAmount = fragCount > fragsWinCondition / 2
+                ? enemyAmount * enemyMultiplier * 2
+                : enemyAmount * enemyDecrease;
+
+            coinAmount = coinAmount * coinDecrease > coinsWinCondition 
+                ? coinAmount * coinDecrease 
+                : coinsWinCondition;
         }
 
         if (fragCount == fragsWinCondition)
         {
-            coinAmount *= coinMultiplier;
-            enemyAmount = enemyAmount * enemyDecrease > fragsWinCondition ? enemyAmount * enemyDecrease : fragsWinCondition;
+            coinAmount = coinCount > coinsWinCondition / 3
+                ? coinAmount * coinMultiplier
+                : coinAmount * coinDecrease;
+            
+            enemyAmount = playerDamageTaken > PlayerStartingHealth / 2
+                ? enemyAmount * enemyMultiplier
+                : enemyAmount * enemyDecrease;
         }
+
+        coinsWinCondition = (int)coinAmount;
+        fragsWinCondition = (int)enemyAmount;
+
+        playerDamageTaken = 0;
         
         Debug.Log("level complete time: " + scoreTime);
         Debug.Log("Enemies in next level: " + enemyAmount);
         Debug.Log("Coins in next level: " + coinAmount);
         ClearLevel();
-        GenerateMapFile((int)coinAmount, (int)enemyAmount, 3);
+        GenerateMapFile(coinsWinCondition, fragsWinCondition, fragsWinCondition / 2);
     }
 
     void GenerateMapFile(int coinAmount, int enemyAmount, int gunAmount)

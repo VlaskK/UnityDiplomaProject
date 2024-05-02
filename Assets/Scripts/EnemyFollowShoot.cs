@@ -80,8 +80,8 @@ public class EnemyFollowShoot : DifficultySettings
         
         var muchEnemies = enemies > 5; // увеличиваем статы
 
-        float healthMultiplier = 10;
-        float speedMultiplier = 2;
+        float healthMultiplier = 15;
+        float speedMultiplier = 4;
 
         if (hardCondition)
         {

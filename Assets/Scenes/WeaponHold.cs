@@ -56,12 +56,12 @@ public class WeaponHold : MonoBehaviour
 
     private void OnEnable()
     {
-        LevelGenerator.OnNewLevel += dropGun;
+        LevelGenerator.dropGunNewLevel += dropGun;
     }
 
     private void OnDisable()
     {
-        LevelGenerator.OnNewLevel -= dropGun;
+        LevelGenerator.dropGunNewLevel -= dropGun;
     }
 
     private void pickGun()

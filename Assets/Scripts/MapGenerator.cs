@@ -11,8 +11,8 @@ class MapGenerator
         int coinAmount,
         int enemyAmount,
         int gunAmount,
-        int width = 60,
-        int height = 28
+        int width = 120,
+        int height = 40
     )
     {
         char[,] levelMap = new char[height, width];
@@ -20,10 +20,10 @@ class MapGenerator
         MakeWalls(levelMap, height, width);
         MakeWay(levelMap, height, width);
 
-        PlaceRandomLetters(levelMap, 'C', coinAmount, null);
+        PlaceRandomLetters(levelMap, 'C', coinAmount, 'C', 10);
         PlaceRandomLetters(levelMap, 'M', enemyAmount, null);
         PlaceRandomLetters(levelMap, 'G', gunAmount, null);
-        PlaceRandomLetters(levelMap, 'S', 1, 'M');
+        PlaceRandomLetters(levelMap, 'S', 1, 'M', 13); // avoudLetter можно сделать массивом
 
         return levelMap;
     }
@@ -59,20 +59,20 @@ class MapGenerator
 
     private static void MakeWay(char[,] levelMap, int height, int width)
     {
-        bool hasAWay = false;
+        bool hasAway = false;
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
-                if (!isInBorder(x, y, height, width) && !hasAWay && (rand.Next(1, 10) == 5))
+                if (!isInBorder(x, y, height, width) && !hasAway && (rand.Next(1, 10) == 5))
                 {
                     levelMap[y, x] = '.';
                     levelMap[y + 1, x] = '.';
-                    hasAWay = true;
+                    hasAway = true;
                 }
             }
 
-            hasAWay = false;
+            hasAway = false;
         }
     }
 
@@ -81,23 +81,7 @@ class MapGenerator
         return y == 0 || y == height - 1 || x == 0 || x == width - 1;
     }
 
-    private static void GenerateFile(char[,] levelMap, int height, int width, string filePath)
-    {
-        StringBuilder output = new StringBuilder();
-        for (int i = 0; i < height; i++)
-        {
-            for (int j = 0; j < width; j++)
-            {
-                output.Append(levelMap[i, j]);
-            }
-
-            if (i < height - 1) output.AppendLine();
-        }
-
-        File.WriteAllText(filePath, output.ToString());
-    }
-
-    private static void PlaceRandomLetters(char[,] map, char letter, int count, char? avoidLetter)
+    private static void PlaceRandomLetters(char[,] map, char letter, int count, char? avoidLetter, int radius = 7)
     {
         int width = map.GetLength(1);
         int height = map.GetLength(0);
@@ -108,13 +92,13 @@ class MapGenerator
             {
                 x = rand.Next(1, width - 1);
                 y = rand.Next(1, height - 1);
-            } while (map[y, x] != '.' || (avoidLetter.HasValue && IsInProximity(map, x, y, avoidLetter.Value)));
+            } while (map[y, x] != '.' || (avoidLetter.HasValue && IsInProximity(map, x, y, avoidLetter.Value, radius)));
 
             map[y, x] = letter;
         } //TODO ландшафт карт подумать 
     }
 
-    private static bool IsInProximity(char[,] map, int x, int y, char letter, int radius = 7)
+    private static bool IsInProximity(char[,] map, int x, int y, char letter, int radius)
     {
         int width = map.GetLength(1);
         int height = map.GetLength(0);
