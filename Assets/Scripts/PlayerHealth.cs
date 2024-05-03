@@ -31,6 +31,8 @@ public class PlayerHealth : DifficultySettings
         if (healthAmount <= 0)
         {
             SceneManager.LoadScene("Menu");
+            currentCoins = 0;
+            fragPoints = 0;
             Destroy(gameObject);
         }
         

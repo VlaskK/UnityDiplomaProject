@@ -40,6 +40,13 @@ public class LevelGenerator : DifficultySettings
     {
         player = GameObject.FindGameObjectWithTag("Player");
         generatedObjects = new List<GameObject>();
+        
+        if (coinsWinCondition == 0 || fragsWinCondition == 0)
+        {
+            coinsWinCondition = 3;
+            fragsWinCondition = 5;
+        }
+        
         GenerateLevel(MapGenerator.GenerateMap(coinsWinCondition * 2, fragsWinCondition, fragsWinCondition / 2));
     }
     

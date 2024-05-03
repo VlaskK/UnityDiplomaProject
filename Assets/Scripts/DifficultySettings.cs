@@ -11,9 +11,9 @@ public class DifficultySettings : MonoBehaviour
 {
     //GameScore Variables
     protected static int[] baseScoreValue = { 5, 7, 10, 15, 20, 25, 30, 37, 45, 55, 0, 5 }; //score value for hitting enemy once
-    
-    public static int coinsWinCondition = 3;
-    public static int fragsWinCondition = 5;
+
+    public static int coinsWinCondition;
+    public static int fragsWinCondition;
     
     public static int currentCoins = 0;
     public static int fragPoints = 0;

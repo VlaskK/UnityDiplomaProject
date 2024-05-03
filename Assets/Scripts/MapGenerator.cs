@@ -20,7 +20,7 @@ class MapGenerator
         MakeWalls(levelMap, height, width);
         MakeWay(levelMap, height, width);
 
-        PlaceRandomLetters(levelMap, 'C', coinAmount, 'C', 10);
+        PlaceRandomLetters(levelMap, 'C', coinAmount, 'C', 5);
         PlaceRandomLetters(levelMap, 'M', enemyAmount, null);
         PlaceRandomLetters(levelMap, 'G', gunAmount, null);
         PlaceRandomLetters(levelMap, 'S', 1, 'M', 13); // avoudLetter можно сделать массивом
